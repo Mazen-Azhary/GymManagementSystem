@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class MemberDatabase implements DataBases {
 
-    @Override
+    
     public void readFromFile() {
         File myFile = new File(this.filename);
 
@@ -22,37 +22,30 @@ public class MemberDatabase implements DataBases {
         }
     }
 
-    @Override
     public Trainer createRecordFrom(String Line) {
         return null;
     }
 
-    @Override
     public ArrayList<Trainer> returnAllRecords() {
         return null;
     }
 
-    @Override
     public boolean contains(String key) {
         return false;
     }
 
-    @Override
     public Trainer getRecord(String key) {
         return null;
     }
 
-    @Override
     public void insertRecord(Trainer Record) {
 
     }
 
-    @Override
     public void deleteRecord(String Key) {
 
     }
 
-    @Override
     public void saveToFile() {
 
     }

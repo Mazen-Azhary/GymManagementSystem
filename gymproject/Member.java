@@ -6,12 +6,12 @@ package gymproject;
 
 
 public class Member {
-String memberId;
-String name;
-String membershipType;
-String email;
-String phoneNumber;
-String Status;
+private String memberId;
+private String name;
+private String membershipType;
+private String email;
+private String phoneNumber;
+private String Status;
 
     public Member(String memberId, String name, String membershipType, String email, String phoneNumber, String Status) {
         this.memberId = memberId;
