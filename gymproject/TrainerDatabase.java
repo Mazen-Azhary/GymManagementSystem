@@ -10,7 +10,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TrainerDatabase implements DataBases{
+public class TrainerDatabase{
 
     private String filename;
     private ArrayList<Trainer> records = new ArrayList<>();
