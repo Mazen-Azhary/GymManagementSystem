@@ -10,7 +10,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TrainerDatabase {
+public class TrainerDatabase implements DataBases{
 
     private String filename;
     private ArrayList<Trainer> records = new ArrayList<>();
@@ -27,17 +27,15 @@ public class TrainerDatabase {
         try {
             Scanner myReader = new Scanner(myFile);
             while (myReader.hasNextLine()) {
-                String[] SplittedData = createRecordFrom(myReader.nextLine());
-                this.records.add(new Trainer(SplittedData));
+                this.records.add(createRecordFrom(myReader.nextLine()));
             }
             myReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred while reading the file: " + e.getMessage());
         }
     }
-
-    public String[] createRecordFrom(String Line) {
-        return Line.split(", ");
+    public Trainer createRecordFrom(String Line) {
+        return new Trainer(Line.split(", "));
     }
 
     public ArrayList<Trainer> returnAllRecords() {
