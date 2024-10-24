@@ -4,10 +4,6 @@
  */
 package gymproject;
 
-/**
- *
- * @author Etijah
- */
 public class GymProject {
 
     /**
@@ -16,5 +12,5 @@ public class GymProject {
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
+
 }
