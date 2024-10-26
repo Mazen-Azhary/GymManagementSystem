@@ -6,28 +6,30 @@ package gymproject;
 
 import java.time.LocalDate;
 
-public class MemberClassRegistraton {
+public class MemberClassRegistration implements Users {
     String memberId;
     String classId;
     String status;
     LocalDate registrationDate;
 
-    void setRegestrationStatus(String status)
-    {
+    void setRegestrationStatus(String status) {
         this.status = status;
     }
-    public MemberClassRegistraton(String memberId, String classId, String status) {
+
+    public MemberClassRegistrationon(String memberId, String classId, String status) {
         this.memberId = memberId;
         this.classId = classId;
         this.status = status;
         this.registrationDate = LocalDate.now();
     }
-    public MemberClassRegistraton(String[] SplittedData) {
+
+    public MemberClassRegistration(String[] SplittedData) {
         this.memberId = SplittedData[0];
         this.classId = SplittedData[1];
         this.status = SplittedData[2];
-        this.registrationDate = LocalDate.parse(SplittedData[3]);//not sure if it works
+        this.registrationDate = LocalDate.parse(SplittedData[3]);// not sure if it works
     }
+
     public String getMemberId() {
         return memberId;
     }
@@ -35,20 +37,20 @@ public class MemberClassRegistraton {
     public String getClassId() {
         return classId;
     }
-    
-    public LocalDate getRegistrationDate(){
-    return this.registrationDate;
+
+    public LocalDate getRegistrationDate() {
+        return this.registrationDate;
     }
-    
-    public String getSearchKey(){
-        return this.memberId+this.classId;
+
+    public String getSearchKey() {
+        return this.memberId + this.classId;
     }
 
     public String toString() {
-        return memberId + ", " + classId + ", " + registrationDate.toString() + ", " + status ;
+        return memberId + ", " + classId + ", " + registrationDate.toString() + ", " + status;
     }
-    
-    public String LineRepresentation(){
+
+    public String LineRepresentation() {
         return this.toString();
     }
 }

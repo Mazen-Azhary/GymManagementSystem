@@ -13,22 +13,11 @@ import java.util.ArrayList;
 public class ClassDatabase extends DataBases {
 
     public ClassDatabase(String filename) {
-        this.filename = filename;
-        this.readFromFile();
+        super(filename);
     }
 
-    public Class createRecordFrom(String Line) {
+    public Users createRecordFrom(String Line) {
         return new Class(Line.split(", "));
-    }
-
-    public Class getRecord(String Key) {
-        for (Class current : this.records) {
-            if (current.getSearchKey() == Key) {
-                return current;
-            }
-        }
-        System.out.println("record with key not found");
-        return null;
     }
     
 }

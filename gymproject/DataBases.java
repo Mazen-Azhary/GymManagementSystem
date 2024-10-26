@@ -6,10 +6,24 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class DataBases<T extends Users> {
+public abstract class DataBases<T extends Users> {
     protected String filename;
     protected ArrayList<T> records;
 
+    public DataBases(String filename)
+    {
+        this.filename = filename;
+        records = new ArrayList<>();
+        readFromFile();
+    }
+    public T getRecord(String Key) {
+        for (T current : this.records) {
+            if (current.getSearchKey() == Key) return current;
+        }
+        System.out.println("record with key not found");
+        return null;
+    }
+    public abstract T createRecordFrom(String Line);
     public  void readFromFile(){
         File myFile = new File(this.filename);
         try {
