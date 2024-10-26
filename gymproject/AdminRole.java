@@ -14,6 +14,12 @@ public class AdminRole {
 
     private TrainerDatabase database;
 
+    public static AdminRole getOnlyAdmin() {
+        AdminRole adminRole = new AdminRole();
+
+        return adminRole;
+    }
+
     public void addTrainer(String trainerId, String name, String email, String specialty, String phoneNumber){
         if(!database.contains(trainerId))
             this.database.insertRecord(new Trainer(trainerId, name, specialty, email, phoneNumber));

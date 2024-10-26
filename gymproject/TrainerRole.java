@@ -10,6 +10,10 @@ public class TrainerRole {
     private ClassDatabase classdatabase;
     private MemberClassRegistrationDatabase memberClassRegistrationDatabase;
 
+    public TrainerRole()
+    {
+
+    }
     public TrainerRole(MemberDatabase memberdatabase, ClassDatabase classdatabase, MemberClassRegistrationDatabase memberClassRegistrationDatabase) {
         this.memberdatabase = memberdatabase;
         this.classdatabase = classdatabase;
