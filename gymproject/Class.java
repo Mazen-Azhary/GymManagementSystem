@@ -1,6 +1,6 @@
 package gymproject;
 
-public class Class implements Users {
+public class Class extends Users {
 
     private String classId;
     private String ClassName;
@@ -39,6 +39,11 @@ public class Class implements Users {
     {
         availableSeats--;
     }
+
+    public String lineRepresentation() {
+        return this.toString();
+    }
+
     public String getSearchKey(){
         return this.classId;
     }
@@ -46,10 +51,5 @@ public class Class implements Users {
     public String toString() {
         return classId + ", " + ClassName + ", " + trainerId + ", " + duration + ", " + availableSeats ;
     }
-    
-    public String LineRepresentation(){
-        return this.toString();
-    }
-
 
 }

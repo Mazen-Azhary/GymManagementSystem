@@ -6,7 +6,7 @@ public class MemberClassRegistrationDatabase extends DataBases {
     }
 
     public Users createRecordFrom(String Line) {
-        return new MemberClassRegistraton(Line.split(", "));
+        return new MemberClassRegistration(Line.split(", "));
     }
 
 }

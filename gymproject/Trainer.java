@@ -5,7 +5,7 @@
 package gymproject;
 
 
-public class Trainer implements Users {
+public class Trainer extends Users {
     private String TrainerId;
     private String Name;
     private String Speciality;
@@ -32,11 +32,13 @@ public class Trainer implements Users {
     public String toString() {
      return TrainerId + ", " + Name + ", " + Speciality + ", " + Email + ", " + PhoneNumber;
 }
-    
-    public String LineRepresentation(){
+
+
+
+    public String lineRepresentation() {
         return this.toString();
     }
-    
+
     public String getSearchKey(){
     return this.TrainerId;
     }

@@ -6,7 +6,7 @@ package gymproject;
 
 import java.time.LocalDate;
 
-public class MemberClassRegistration implements Users {
+public class MemberClassRegistration extends Users {
     String memberId;
     String classId;
     String status;
@@ -16,7 +16,7 @@ public class MemberClassRegistration implements Users {
         this.status = status;
     }
 
-    public MemberClassRegistrationon(String memberId, String classId, String status) {
+    public MemberClassRegistration(String memberId, String classId, String status) {
         this.memberId = memberId;
         this.classId = classId;
         this.status = status;
@@ -42,6 +42,10 @@ public class MemberClassRegistration implements Users {
         return this.registrationDate;
     }
 
+    public String lineRepresentation() {
+        return this.toString();
+    }
+
     public String getSearchKey() {
         return this.memberId + this.classId;
     }
@@ -50,7 +54,4 @@ public class MemberClassRegistration implements Users {
         return memberId + ", " + classId + ", " + registrationDate.toString() + ", " + status;
     }
 
-    public String LineRepresentation() {
-        return this.toString();
-    }
 }
