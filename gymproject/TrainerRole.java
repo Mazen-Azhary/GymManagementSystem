@@ -63,6 +63,8 @@ public class TrainerRole {
             issueRefund(memberID);
         }
         registration.setRegestrationStatus("cancelled");
+        Class c_class = (Class) classdatabase.getRecord(classID);
+        c_class.incrementSeats();
         memberClassRegistrationDatabase.deleteRecord(classID);
         return true;
     }
