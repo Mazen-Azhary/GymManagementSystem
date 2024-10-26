@@ -2,51 +2,28 @@ package gymproject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MemberDatabase {
+public class MemberDatabase extends DataBases {
 
-    
-    public void readFromFile() {
-        File myFile = new File(this.filename);
+    public MemberDatabase(String filename) {
+        this.filename = filename;
+        this.readFromFile();
+    }
 
-        try {
-            Scanner myReader = new Scanner(myFile);
-            while (myReader.hasNextLine()) {
-                this.records.add(createRecordFrom(myReader.nextLine()));
+    public Member createRecordFrom(String Line) {
+        return new Member(Line.split(", "));
+    }
+
+    public Member getRecord(String Key) {
+        for (Member current : this.records) {
+            if (current.getSearchKey() == Key) {
+                return current;
             }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred while reading the file: " + e.getMessage());
         }
-    }
-
-    public Trainer createRecordFrom(String Line) {
+        System.out.println("record with key not found");
         return null;
-    }
-
-    public ArrayList<Trainer> returnAllRecords() {
-        return null;
-    }
-
-    public boolean contains(String key) {
-        return false;
-    }
-
-    public Trainer getRecord(String key) {
-        return null;
-    }
-
-    public void insertRecord(Trainer Record) {
-
-    }
-
-    public void deleteRecord(String Key) {
-
-    }
-
-    public void saveToFile() {
-
     }
 }

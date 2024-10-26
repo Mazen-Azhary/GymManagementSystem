@@ -5,7 +5,7 @@
 package gymproject;
 
 
-public class Member {
+public class Member implements Users{
 private String memberId;
 private String name;
 private String membershipType;
@@ -32,17 +32,14 @@ private String Status;
     }
     
     public String getSearchKey(){
-    return this.memberId;
+        return this.memberId;
     }
 
     public String toString() {
-     return memberId + ", " + name + ", " + membershipType + ", " + email + ", " + phoneNumber +", "+Status;
+        return memberId + ", " + name + ", " + membershipType + ", " + email + ", " + phoneNumber +", "+Status;
 }
     
     public String LineRepresentation(){
         return this.toString();
     }
-
-
-    
 }

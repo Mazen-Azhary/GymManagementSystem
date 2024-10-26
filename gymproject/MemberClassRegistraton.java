@@ -12,6 +12,10 @@ public class MemberClassRegistraton {
     String status;
     LocalDate registrationDate;
 
+    void setRegestrationStatus(String status)
+    {
+        this.status = status;
+    }
     public MemberClassRegistraton(String memberId, String classId, String status) {
         this.memberId = memberId;
         this.classId = classId;
@@ -24,7 +28,6 @@ public class MemberClassRegistraton {
         this.status = SplittedData[2];
         this.registrationDate = LocalDate.parse(SplittedData[3]);//not sure if it works
     }
-
     public String getMemberId() {
         return memberId;
     }
@@ -37,18 +40,15 @@ public class MemberClassRegistraton {
     return this.registrationDate;
     }
     
-        public String getSearchKey(){
-    return this.memberId+this.classId;
+    public String getSearchKey(){
+        return this.memberId+this.classId;
     }
 
     public String toString() {
-     return memberId + ", " + classId + ", " + status + ", " + registrationDate.toString();
-}
+        return memberId + ", " + classId + ", " + registrationDate.toString() + ", " + status ;
+    }
     
     public String LineRepresentation(){
         return this.toString();
     }
-
-
-    
 }

@@ -1,14 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package gymproject;
 
-/**
- *
- * @author Mazen
- */
-public class Class {
+public class Class implements Users {
 
     private String classId;
     private String ClassName;
@@ -39,14 +31,21 @@ public class Class {
     public void setAvailableSeats(int availableSeats) {
         this.availableSeats = availableSeats;
     }
-
-        public String getSearchKey(){
-    return this.classId;
+    public void incrementSeats()
+    {
+        availableSeats++;
+    }
+    public void decrementSeats()
+    {
+        availableSeats--;
+    }
+    public String getSearchKey(){
+        return this.classId;
     }
 
     public String toString() {
-     return classId + ", " + ClassName + ", " + trainerId + ", " + duration + ", " + availableSeats ;
-}
+        return classId + ", " + ClassName + ", " + trainerId + ", " + duration + ", " + availableSeats ;
+    }
     
     public String LineRepresentation(){
         return this.toString();

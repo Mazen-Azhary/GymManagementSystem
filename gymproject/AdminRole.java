@@ -15,7 +15,10 @@ public class AdminRole {
     private TrainerDatabase database;
 
     public void addTrainer(String trainerId, String name, String email, String specialty, String phoneNumber){
-    this.database.insertRecord(new Trainer(trainerId, name, specialty, email, phoneNumber));
+        if(!database.contains(trainerId))
+            this.database.insertRecord(new Trainer(trainerId, name, specialty, email, phoneNumber));
+        else
+            System.out.println("The Trainer is already existed!");
     };
     
     public ArrayList<Trainer> getListOfTrainers(){

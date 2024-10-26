@@ -10,12 +10,25 @@ import java.util.ArrayList;
  *
  * @author Mazen
  */
-public class ClassDatabase {
-  private ArrayList<Trainer> records = new ArrayList<Trainer>();
-  private String filename;
+public class ClassDatabase extends DataBases {
 
-    public ClassDatabase() {
-        
+    public ClassDatabase(String filename) {
+        this.filename = filename;
+        this.readFromFile();
     }
-  
+
+    public Class createRecordFrom(String Line) {
+        return new Class(Line.split(", "));
+    }
+
+    public Class getRecord(String Key) {
+        for (Class current : this.records) {
+            if (current.getSearchKey() == Key) {
+                return current;
+            }
+        }
+        System.out.println("record with key not found");
+        return null;
+    }
+    
 }
