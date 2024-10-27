@@ -4,11 +4,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
-public abstract class DataBases<T extends Users> {
+public abstract class DataBases {
     protected String filename;
-    protected ArrayList<T> records;
+    protected ArrayList<Users> records;
 
     public DataBases(String filename)
     {
@@ -16,14 +17,13 @@ public abstract class DataBases<T extends Users> {
         records = new ArrayList<>();
         readFromFile();
     }
-    public T getRecord(String Key) {
-        for (T current : this.records) {
+    public Users getRecord(String Key) {
+        for (Users current : this.records) {
             if (current.getSearchKey() == Key) return current;
         }
-        System.out.println("record with key not found");
         return null;
     }
-    public abstract T createRecordFrom(String Line);
+    public abstract Users createRecordFrom(String Line);
     public  void readFromFile(){
         File myFile = new File(this.filename);
         try {
@@ -37,41 +37,40 @@ public abstract class DataBases<T extends Users> {
         }
     }
 
-    public ArrayList<T> returnAllRecords(){
-        return this.records;
+    public ArrayList<Users> returnAllRecords(){
+        return records;
     }
 
     public boolean contains(String Key){
         if (getRecord(Key) != null) {
             return true;
         }
-        System.out.println("Not Found!");
         return false;
     }
 
-    public void insertRecord(T Record){
-        if (this.records.contains(Record.getSearchKey())) {
-            System.out.println("Already Exists");
-            return;
+    public boolean insertRecord(Users Record){
+        if (records.contains(Record)) {
+            return false;
         }
         this.records.add(Record);
+        return true;
     }
 
-    public void deleteRecord(String Key){
-        if (this.contains(Key)) {
+    public boolean deleteRecord(String Key){
+        if (this.records.contains(this.getRecord(Key))) {
             this.records.remove(this.getRecord(Key));
-            return;
+            return true;
         }
-        System.out.println("Unable to delete, Key doesn't exist");
+        return false;
     }
 
     public void saveToFile(){
         try {
             FileWriter output = new FileWriter(this.filename);
-            int i = 0;
-            while (this.records.get(i) != null) {
-                output.write(this.records.get(i).toString());
-                i++;
+            for(int i=0;i<this.records.size();i++)
+            {
+                output.write(this.records.get(i).lineRepresentation());
+                output.write("\n");
             }
             output.close();
         } catch (Exception e) {

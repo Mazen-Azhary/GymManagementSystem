@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class MemberDatabase extends DataBases {
 
-    public MemberDatabase(String filename) {
-        super(filename);
+    public MemberDatabase() {
+        super("C:\\Users\\Etijah\\Documents\\NetBeansProjects\\GymProject\\src\\gymproject\\Members.txt");
     }
     public Users createRecordFrom(String Line) {
         return new Member(Line.split(", "));

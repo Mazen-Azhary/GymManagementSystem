@@ -5,7 +5,7 @@
 package gymproject;
 
 
-public class Trainer extends Users {
+public class Trainer implements Users {
     private String TrainerId;
     private String Name;
     private String Speciality;

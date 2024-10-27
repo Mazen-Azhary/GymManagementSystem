@@ -1,6 +1,6 @@
 package gymproject;
 
-public class Class extends Users {
+public class Class implements Users {
 
     private String classId;
     private String ClassName;
@@ -31,14 +31,7 @@ public class Class extends Users {
     public void setAvailableSeats(int availableSeats) {
         this.availableSeats = availableSeats;
     }
-    public void incrementSeats()
-    {
-        availableSeats++;
-    }
-    public void decrementSeats()
-    {
-        availableSeats--;
-    }
+
 
     public String lineRepresentation() {
         return this.toString();

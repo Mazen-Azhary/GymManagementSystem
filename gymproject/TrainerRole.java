@@ -6,41 +6,52 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class TrainerRole {
-    private MemberDatabase memberdatabase;
-    private ClassDatabase classdatabase;
-    private MemberClassRegistrationDatabase memberClassRegistrationDatabase;
+    private MemberDatabase memberdatabase = new MemberDatabase();
+    private ClassDatabase classdatabase = new ClassDatabase();
+    private MemberClassRegistrationDatabase memberClassRegistrationDatabase = new MemberClassRegistrationDatabase();
 
-    public TrainerRole()
-    {
-
-    }
-    public TrainerRole(MemberDatabase memberdatabase, ClassDatabase classdatabase, MemberClassRegistrationDatabase memberClassRegistrationDatabase) {
-        this.memberdatabase = memberdatabase;
-        this.classdatabase = classdatabase;
-        this.memberClassRegistrationDatabase = memberClassRegistrationDatabase;
+    public TrainerRole() {
     }
 
-    public void addMember (String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
-        if(!memberdatabase.contains(memberID))
+    public boolean addMember (String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
+        if(!memberdatabase.contains(memberID)){
             memberdatabase.insertRecord(new Member(memberID,name,membershipType,email,phoneNumber,status));
-        else 
-            System.out.println("The Member is already registered!");
+            return true;
+        }
+        return false;
     }  
 
     public ArrayList<Member> getListOfMembers()
     {
-        return memberdatabase.returnAllRecords();
+        ArrayList<Users> records = memberdatabase.returnAllRecords();
+        ArrayList<Member> members = new ArrayList<>();
+
+        for (Users record : records) {
+            if (record instanceof Member) {
+                members.add((Member) record);
+            }
+        }
+        return members;
+
     }
 
-    public void addClass (String classID, String className, String trainerID, int duration, int 
+    public void addClass (String classID, String className, String trainerID, int duration, int
     maxParticipants) {
         classdatabase.insertRecord(new Class(classID,className,trainerID,duration,maxParticipants));
     }
 
     public ArrayList<Class> getListOfClasses(){
-    return this.classdatabase.returnAllRecords();
+        ArrayList<Users> records = classdatabase.returnAllRecords();
+        ArrayList<Class> classes = new ArrayList<>();
+
+        for (Users record : records) {
+            if (record instanceof Class) {
+                classes.add((Class) record);
+            }
+        }
+        return classes;
     }
-    
+
     public boolean registerMemberForClass (String memberID, String classID, LocalDate registrationDate)
     {
         Class addedClass = (Class) classdatabase.getRecord(classID);
@@ -49,7 +60,7 @@ public class TrainerRole {
         if(addedClass.getAvailableSeats()>0)
         {
             memberClassRegistrationDatabase.insertRecord(new MemberClassRegistration(memberID,classID,"active"));
-            addedClass.decrementSeats();
+            addedClass.setAvailableSeats(addedClass.getAvailableSeats()-1);
         }
             return true;
     }
@@ -64,13 +75,13 @@ public class TrainerRole {
         long days = ChronoUnit.DAYS.between(registeredDate, cancelDate);
         if(days<=3)
         {
-            issueRefund(memberID);
-        }
-        registration.setRegestrationStatus("cancelled");
+        registration.setRegistrationStatus("cancelled");
         Class c_class = (Class) classdatabase.getRecord(classID);
-        c_class.incrementSeats();
+        c_class.setAvailableSeats(c_class.getAvailableSeats()+1);
         memberClassRegistrationDatabase.deleteRecord(classID);
         return true;
+        }
+        return false;
     }
 
     void issueRefund(String MemberID)
@@ -78,10 +89,19 @@ public class TrainerRole {
         System.out.println("Refund issued to member: "+MemberID);
     }
 
-    public ArrayList<MemberClassRegistration> getListOfRegistrations()
-    {
-        return memberClassRegistrationDatabase.returnAllRecords();
+    public ArrayList<MemberClassRegistration> getListOfRegistrations() {
+        ArrayList<Users> records = memberClassRegistrationDatabase.returnAllRecords();
+        ArrayList<MemberClassRegistration> registrations = new ArrayList<>();
+
+        for (Users record : records) {
+            if (record instanceof MemberClassRegistration) {
+                registrations.add((MemberClassRegistration) record);
+            }
+        }
+        return registrations;
     }
+
+
 
     void logout()
     {

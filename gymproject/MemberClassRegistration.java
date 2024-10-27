@@ -6,13 +6,13 @@ package gymproject;
 
 import java.time.LocalDate;
 
-public class MemberClassRegistration extends Users {
+public class MemberClassRegistration implements Users {
     String memberId;
     String classId;
     String status;
     LocalDate registrationDate;
 
-    void setRegestrationStatus(String status) {
+    void setRegistrationStatus(String status) {
         this.status = status;
     }
 
