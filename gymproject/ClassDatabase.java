@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ClassDatabase extends DataBases {
 
     public ClassDatabase() {
-        super("C:\\Users\\Etijah\\Documents\\NetBeansProjects\\GymProject\\src\\gymproject\\Class.txt");
+        super("src/gymproject/Class.txt");
     }
 
     public Users createRecordFrom(String Line) {

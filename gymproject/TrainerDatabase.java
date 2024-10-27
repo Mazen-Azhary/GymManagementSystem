@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class TrainerDatabase extends DataBases {
 
     public TrainerDatabase() {
-        super("C:\\Users\\Etijah\\Documents\\NetBeansProjects\\GymProject\\src\\gymproject\\Trainers.txt");
+        super("src/gymproject/Trainers.txt");
     }
 
     public Users createRecordFrom(String Line) {
