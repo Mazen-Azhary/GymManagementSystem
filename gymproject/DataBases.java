@@ -9,12 +9,11 @@ import java.util.Scanner;
 
 public abstract class DataBases {
     protected String filename;
-    protected ArrayList<Users> records;
+    protected ArrayList<Users> records=new ArrayList<>();
 
     public DataBases(String filename)
     {
-        this.filename = filename;
-        records = new ArrayList<>();
+        this.filename = filename;        
         readFromFile();
     }
     public Users getRecord(String Key) {
