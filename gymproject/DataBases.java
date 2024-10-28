@@ -18,7 +18,9 @@ public abstract class DataBases {
     }
     public Users getRecord(String Key) {
         for (Users current : this.records) {
-            if (current.getSearchKey() == Key) return current;
+            if (Objects.equals(current.getSearchKey(), Key)) {
+                return current;
+            }
         }
         return null;
     }
@@ -48,9 +50,8 @@ public abstract class DataBases {
     }
 
     public boolean insertRecord(Users Record){
-        if (records.contains(Record)) {
+        if(this.contains(Record.getSearchKey()))
             return false;
-        }
         this.records.add(Record);
         return true;
     }
@@ -68,8 +69,7 @@ public abstract class DataBases {
             FileWriter output = new FileWriter(this.filename);
             for(int i=0;i<this.records.size();i++)
             {
-                output.write(this.records.get(i).lineRepresentation());
-                output.write("\n");
+                output.write(this.records.get(i).lineRepresentation()+"\n");
             }
             output.close();
         } catch (Exception e) {

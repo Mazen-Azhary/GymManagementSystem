@@ -16,18 +16,18 @@ public class MemberClassRegistration implements Users {
         this.status = status;
     }
 
-    public MemberClassRegistration(String memberId, String classId, String status) {
+    public MemberClassRegistration(String memberId, String classId, String status,LocalDate registrationDate) {
         this.memberId = memberId;
         this.classId = classId;
         this.status = status;
-        this.registrationDate = LocalDate.now();
+        this.registrationDate = registrationDate;
     }
 
     public MemberClassRegistration(String[] SplittedData) {
         this.memberId = SplittedData[0];
         this.classId = SplittedData[1];
-        this.status = SplittedData[2];
-        this.registrationDate = LocalDate.parse(SplittedData[3]);// not sure if it works
+        this.registrationDate = LocalDate.parse(SplittedData[2]);
+        this.status = SplittedData[3];
     }
 
     public String getMemberId() {

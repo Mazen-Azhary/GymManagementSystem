@@ -1,7 +1,5 @@
 package gymproject;
-
 import java.util.Scanner;
-
 public class GymProject {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
@@ -17,7 +15,6 @@ public class GymProject {
             System.out.print("Enter your choice:");
             choice = s.nextInt();
             s.nextLine();
-
             switch (choice) {
                 case 1:
                     boolean exitAdmin = false;
@@ -31,10 +28,10 @@ public class GymProject {
                         s.nextLine();
                         switch (adminChoice) {
                             case 1:
-                                
+
                                 break;
                             case 2:
-                                
+
                                 break;
                             case 3:
                                 exitAdmin = true;
@@ -45,7 +42,6 @@ public class GymProject {
                         System.out.println();
                     }
                     break;
-
                 case 2:
                     boolean exitTrainer = false;
                     while (!exitTrainer) {
@@ -56,16 +52,15 @@ public class GymProject {
                         System.out.print("Enter your choice:");
                         int trainerChoice = s.nextInt();
                         s.nextLine();
-
                         switch (trainerChoice) {
                             case 1:
-                                
+
                                 break;
                             case 2:
-                                
+
                                 break;
                             case 3:
-                                
+
                                 exitTrainer = true;
                                 break;
                             default:
@@ -74,12 +69,10 @@ public class GymProject {
                         System.out.println();
                     }
                     break;
-
                 case 3:
                     System.out.println("Exiting");
                     exitSys = true;
                     break;
-
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
