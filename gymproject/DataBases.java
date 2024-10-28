@@ -25,6 +25,8 @@ public abstract class DataBases {
         return null;
     }
     public abstract Users createRecordFrom(String Line);
+    
+    
     public  void readFromFile(){
         File myFile = new File(this.filename);
         try {
