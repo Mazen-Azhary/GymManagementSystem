@@ -53,7 +53,6 @@ public class TrainerRole {
         MemberClassRegistration registration = (MemberClassRegistration) memberClassRegistrationDatabase.getRecord(memberID + classID);
 
         if (registration == null) {
-            System.out.println("Registration not found");
             return false;
         }
         LocalDate cancelDate = LocalDate.now();
