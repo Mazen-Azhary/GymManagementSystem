@@ -55,6 +55,9 @@ public class TrainerRole {
         if (registration == null) {
             return false;
         }
+        if(registration.getStatus().equalsIgnoreCase("cancelled")) {
+            return false;
+        }
         LocalDate cancelDate = LocalDate.now();
         LocalDate registrationDate = registration.getRegistrationDate();
         long daysBetween = ChronoUnit.DAYS.between(registrationDate, cancelDate);

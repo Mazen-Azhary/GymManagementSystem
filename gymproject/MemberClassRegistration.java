@@ -16,7 +16,11 @@ public class MemberClassRegistration implements Users {
         this.status = status;
     }
 
-    public MemberClassRegistration(String memberId, String classId, String status,LocalDate registrationDate) {
+    public String getStatus() {
+        return status;
+    }
+
+    public MemberClassRegistration(String memberId, String classId, String status, LocalDate registrationDate) {
         this.memberId = memberId;
         this.classId = classId;
         this.status = status;
