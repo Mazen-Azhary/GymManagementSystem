@@ -8,7 +8,7 @@ public class TrainerRole {
     private MemberDatabase memberdatabase = new MemberDatabase();
     private ClassDatabase classdatabase = new ClassDatabase();
     private MemberClassRegistrationDatabase memberClassRegistrationDatabase = new MemberClassRegistrationDatabase();
-
+    
     public TrainerRole() {}
 
     public boolean addMember(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
@@ -58,13 +58,17 @@ public class TrainerRole {
         LocalDate cancelDate = LocalDate.now();
         LocalDate registrationDate = registration.getRegistrationDate();
         long daysBetween = ChronoUnit.DAYS.between(registrationDate, cancelDate);
-        if (daysBetween <= 3) {
+        if(registration.getStatus().equalsIgnoreCase("cancelled"))
+        {
+            return false;
+        }
+        if (daysBetween <=3) {
             Class registeredClass = (Class) classdatabase.getRecord(classID);
                 registration.setRegistrationStatus("cancelled");
                 registeredClass.setAvailableSeats(registeredClass.getAvailableSeats() + 1);
                 return true;
         }
-        return false;
+             return false;
     }
 
     public ArrayList<Users> getListOfRegistrations() {

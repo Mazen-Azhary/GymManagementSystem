@@ -30,6 +30,10 @@ public class MemberClassRegistration implements Users {
         this.status = SplittedData[3];
     }
 
+    public String getStatus() {
+        return status;
+    }
+    
     public String getMemberId() {
         return memberId;
     }
