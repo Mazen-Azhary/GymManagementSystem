@@ -16,6 +16,7 @@ public class MainWindow extends javax.swing.JFrame {
      * Creates new form MainWindow
      */
     public MainWindow() {
+        this.setTitle("Gym Management");
         initComponents();
     }
 
@@ -144,7 +145,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminRoleButtonActionPerformed
 
     private void TrainerRoleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrainerRoleButtonActionPerformed
-        TrainerLoginPage trainerLogin = new TrainerLoginPage();
+        TrainerLoginPage trainerLogin = new TrainerLoginPage(this);
         trainerLogin.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_TrainerRoleButtonActionPerformed

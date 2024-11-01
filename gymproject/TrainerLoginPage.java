@@ -11,11 +11,13 @@ import javax.swing.JOptionPane;
  * @author Mazen
  */
 public class TrainerLoginPage extends javax.swing.JFrame {
-
+    static MainWindow mainWindow;
     /**
      * Creates new form AdminLoginPage
      */
-    public TrainerLoginPage() {
+    public TrainerLoginPage(MainWindow mainWindow) {
+        this.setTitle("Trainer Login");
+        this.mainWindow=mainWindow;
         initComponents();
     }
 
@@ -205,7 +207,7 @@ public class TrainerLoginPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TrainerLoginPage().setVisible(true);
+                new TrainerLoginPage(mainWindow).setVisible(true);
             }
         });
     }
