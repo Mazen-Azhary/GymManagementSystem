@@ -4,17 +4,20 @@
  */
 package gymproject;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mazen
  */
-public class AdminAddTrainerPage extends javax.swing.JFrame {
-
+public class TrainerLoginPage extends javax.swing.JFrame {
+    static MainWindow mainWindow;
     /**
-     * Creates new form AdminAddTrainerPage
+     * Creates new form AdminLoginPage
      */
-    public AdminAddTrainerPage() {
-        this.setTitle("Add Trainer");
+    public TrainerLoginPage(MainWindow mainWindow) {
+        this.setTitle("Trainer Login");
+        this.mainWindow=mainWindow;
         initComponents();
     }
 
@@ -31,13 +34,9 @@ public class AdminAddTrainerPage extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        TrainerLoginSubmission = new javax.swing.JButton();
         TrainerUserNameTextField = new javax.swing.JTextField();
         TrainerPasswordTextField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        TrainerPasswordTextField1 = new javax.swing.JTextField();
-        TrainerPasswordTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -48,79 +47,36 @@ public class AdminAddTrainerPage extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setBackground(new java.awt.Color(51, 255, 51));
-        jLabel1.setText("Id");
+        jLabel1.setText("UserName");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 130, 80));
 
         jLabel2.setBackground(new java.awt.Color(51, 255, 51));
-        jLabel2.setText("Speciality");
+        jLabel2.setText("Password");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 130, 80));
+
+        TrainerLoginSubmission.setText("Login");
+        TrainerLoginSubmission.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TrainerLoginSubmissionActionPerformed(evt);
+            }
+        });
+        jPanel2.add(TrainerLoginSubmission, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 57, -1));
 
         TrainerUserNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TrainerUserNameTextFieldActionPerformed(evt);
             }
         });
-
-        jLabel4.setBackground(new java.awt.Color(51, 255, 51));
-        jLabel4.setText("Name");
-
-        jLabel5.setBackground(new java.awt.Color(51, 255, 51));
-        jLabel5.setText("Phone Number");
-
-        jButton1.setText("jButton1");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(104, 104, 104)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TrainerPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TrainerUserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TrainerPasswordTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TrainerPasswordTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(121, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(TrainerUserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(TrainerPasswordTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(TrainerPasswordTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TrainerPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1))
-        );
+        jPanel2.add(TrainerUserNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 170, 40));
+        jPanel2.add(TrainerPasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 170, 40));
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.CENTER);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel3.setText("                                                                           Add Trainer");
+        jLabel3.setText("                                                                      Trainer Login");
         jLabel3.setAlignmentX(0.5F);
         jLabel3.setName(""); // NOI18N
         jLabel3.setPreferredSize(new java.awt.Dimension(800, 40));
@@ -169,7 +125,7 @@ public class AdminAddTrainerPage extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 209, Short.MAX_VALUE)
+            .addGap(0, 328, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel5, java.awt.BorderLayout.LINE_END);
@@ -182,7 +138,7 @@ public class AdminAddTrainerPage extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 209, Short.MAX_VALUE)
+            .addGap(0, 328, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel6, java.awt.BorderLayout.LINE_START);
@@ -191,7 +147,7 @@ public class AdminAddTrainerPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,6 +160,21 @@ public class AdminAddTrainerPage extends javax.swing.JFrame {
     private void TrainerUserNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrainerUserNameTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TrainerUserNameTextFieldActionPerformed
+
+    private void TrainerLoginSubmissionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrainerLoginSubmissionActionPerformed
+        String Username = TrainerUserNameTextField.getText();
+        String Password =TrainerPasswordTextField.getText();
+        if(Username.equalsIgnoreCase(LoginCredentials.TRAINER_USERNAME) && Password.equalsIgnoreCase(LoginCredentials.TRAINER_PASSWORD)){
+            JOptionPane.showMessageDialog(null, "Welcome Trainer");
+            //new obj of admin role page
+        }else if(Username.isBlank() || Password.isBlank()){
+        JOptionPane.showMessageDialog(null, "Please enter username and password", "Error in credentials", JOptionPane.ERROR_MESSAGE);
+        
+        }else{
+        JOptionPane.showMessageDialog(null, "Please enter correct username and password", "Error in credentials", JOptionPane.ERROR_MESSAGE);
+        
+        }
+    }//GEN-LAST:event_TrainerLoginSubmissionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,35 +193,32 @@ public class AdminAddTrainerPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminAddTrainerPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrainerLoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminAddTrainerPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrainerLoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminAddTrainerPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrainerLoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminAddTrainerPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrainerLoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminAddTrainerPage().setVisible(true);
+                new TrainerLoginPage(mainWindow).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton TrainerLoginSubmission;
     private javax.swing.JTextField TrainerPasswordTextField;
-    private javax.swing.JTextField TrainerPasswordTextField1;
-    private javax.swing.JTextField TrainerPasswordTextField2;
     private javax.swing.JTextField TrainerUserNameTextField;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
