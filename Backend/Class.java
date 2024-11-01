@@ -1,5 +1,4 @@
-package gymproject;
-
+package Backend;
 public class Class implements Users {
 
     private String classId;

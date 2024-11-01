@@ -1,5 +1,4 @@
-package gymproject;
-
+package Backend;
 import java.util.Objects;
 
 public class MemberClassRegistrationDatabase extends DataBases {

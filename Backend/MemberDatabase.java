@@ -1,5 +1,4 @@
-package gymproject;
-
+package Backend;
 public class MemberDatabase extends DataBases {
 
     public MemberDatabase() {
