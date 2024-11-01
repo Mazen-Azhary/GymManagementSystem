@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package gymproject;
+package Frontend;
 
 import javax.swing.JOptionPane;
 
@@ -63,7 +63,7 @@ public class TrainerLoginPage extends javax.swing.JFrame {
                 TrainerLoginSubmissionActionPerformed(evt);
             }
         });
-        jPanel2.add(TrainerLoginSubmission, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 57, -1));
+        jPanel2.add(TrainerLoginSubmission, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 110, 30));
 
         TrainerUserNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
