@@ -109,8 +109,11 @@
         </Component>
         <Component class="javax.swing.JButton" name="viewClassButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="View Class"/>
+            <Property name="text" type="java.lang.String" value="View Classes"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewClassButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="RegisterMemberForClassButton">
           <Properties>
@@ -121,11 +124,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="View Members"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewMembersButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="viewRegistrationButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="View Registration"/>
+            <Property name="text" type="java.lang.String" value="View Registrations"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewRegistrationButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="CancelRegistrationButton">
           <Properties>

@@ -23,6 +23,7 @@ public class AdminPage extends javax.swing.JFrame {
         admin = new AdminRole();
         this.mainWindow=mainWindow;
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

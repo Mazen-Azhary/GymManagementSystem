@@ -16,16 +16,20 @@ public class ViewRegistrations extends javax.swing.JFrame {
     /**
      * Creates new form ViewRegistrations
      */
-    public ViewRegistrations() {
+    static TrainerRoleWindow trainerRoleWindow;
+    static TrainerRole trainerRole;
+    public ViewRegistrations(TrainerRoleWindow trainerRoleWindow,TrainerRole trainerRole) {
         initComponents();
         setLocationRelativeTo(null);
+        this.trainerRole = trainerRole;
+        this.trainerRoleWindow = trainerRoleWindow;
         setTitle("View Registrations");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         loadRegistrationData();
     }
     private void loadRegistrationData() {
         DefaultTableModel model = (DefaultTableModel) ViewRegistrationsTable.getModel();
-        MemberClassRegistrationDatabase db = new MemberClassRegistrationDatabase();
-        ArrayList<Users> registrations = db.returnAllRecords();
+        ArrayList<Users> registrations = this.trainerRole.getListOfRegistrations();
         for (Users user : registrations) {
             String [] splitted = user.lineRepresentation().split(", ");
             model.addRow(new String[]{
@@ -65,6 +69,11 @@ public class ViewRegistrations extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(ViewRegistrationsTable);
+        if (ViewRegistrationsTable.getColumnModel().getColumnCount() > 0) {
+            ViewRegistrationsTable.getColumnModel().getColumn(0).setHeaderValue("Member Id");
+            ViewRegistrationsTable.getColumnModel().getColumn(1).setHeaderValue("Class Id");
+            ViewRegistrationsTable.getColumnModel().getColumn(2).setHeaderValue("Reg Date");
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -170,7 +179,7 @@ public class ViewRegistrations extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewRegistrations().setVisible(true);
+                new ViewRegistrations(trainerRoleWindow,trainerRole).setVisible(true);
             }
         });
     }

@@ -13,20 +13,23 @@ import Backend.*;
  * @author Mazen
  */
 public class ViewClasses extends javax.swing.JFrame {
-
+    static TrainerRoleWindow trainerRoleWindow;
+    static TrainerRole trainerRole;
     /**
      * Creates new form ViewClasses
      */
-    public ViewClasses() {
+    public ViewClasses(TrainerRoleWindow trainerRoleWindow,TrainerRole trainerRole) {
         initComponents();
         setLocationRelativeTo(null);
+        this.trainerRole = trainerRole;
+        this.trainerRoleWindow = trainerRoleWindow;
         setTitle("View Classes");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         loadClassesData();
     }
     private void loadClassesData() {
         DefaultTableModel model = (DefaultTableModel) ViewClassesTable.getModel();
-        MemberClassRegistrationDatabase db = new MemberClassRegistrationDatabase();
-        ArrayList<Users> Classes = db.returnAllRecords();
+        ArrayList<Users> Classes = this.trainerRole.getListOfClasses();
         for (Users user : Classes) {
             String [] splitted = user.lineRepresentation().split(", ");
             model.addRow(new String[]{
@@ -114,7 +117,7 @@ public class ViewClasses extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewClasses().setVisible(true);
+                new ViewClasses(trainerRoleWindow,trainerRole).setVisible(true);
             }
         });
     }

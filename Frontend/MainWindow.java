@@ -18,6 +18,7 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         this.setTitle("Gym System");
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

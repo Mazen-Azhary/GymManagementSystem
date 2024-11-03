@@ -13,23 +13,16 @@ import javax.swing.JOptionPane;
  * @author Mazen
  */
 public class AddClass extends javax.swing.JFrame {
-//static TrainerRoleWindow parent;
 static TrainerRole trainerRole;
 static MainWindow mainWindow;
-//static TrainerRoleWindow parent;
-static TrainerRole trainerRole;
-static MainWindow mainWindow;
-
     /**
      * Creates new form AddClass
      */
-    public AddClass(MainWindow parent,TrainerRole trainerRole) {
-    public AddClass(MainWindow parent,TrainerRole trainerRole) {
+    public AddClass(MainWindow mainWindow,TrainerRole trainerRole) {
         initComponents();
-        this.mainWindow=parent;
+        this.mainWindow=mainWindow;
         this.trainerRole=trainerRole;
-        this.mainWindow=parent;
-        this.trainerRole=trainerRole;
+        
         setTitle("Add Class");
         setLocationRelativeTo(null);
     }
@@ -49,21 +42,19 @@ static MainWindow mainWindow;
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        addClassSubmit = new javax.swing.JButton();
+        AddButton = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        classIdText = new javax.swing.JTextPane();
+        ClassIdTextField = new javax.swing.JTextPane();
         jScrollPane6 = new javax.swing.JScrollPane();
-        classNameText = new javax.swing.JTextPane();
+        ClassNameTextField = new javax.swing.JTextPane();
         jScrollPane7 = new javax.swing.JScrollPane();
-        IdField = new javax.swing.JTextPane();
+        TrainerIdTextField = new javax.swing.JTextPane();
         jScrollPane8 = new javax.swing.JScrollPane();
-        durationField = new javax.swing.JTextPane();
+        DurationTextField = new javax.swing.JTextPane();
         jScrollPane9 = new javax.swing.JScrollPane();
-        maxParticipants = new javax.swing.JTextPane();
+        MaxParticipantsTextField = new javax.swing.JTextPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        BackButton = new javax.swing.JButton();
-        BackButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -74,81 +65,46 @@ static MainWindow mainWindow;
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Class ID");
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-              //  jButton2ActionPerformed(evt);
-            }
-        });
 
         jButton3.setBackground(new java.awt.Color(102, 255, 0));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("Class Name");
         jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-             //   jButton3ActionPerformed(evt);
-            }
-        });
 
         jButton4.setBackground(new java.awt.Color(102, 255, 0));
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("Trainer Id");
         jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-             //   jButton4ActionPerformed(evt);
-            }
-        });
 
         jButton5.setBackground(new java.awt.Color(102, 255, 0));
         jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setText("Duration");
         jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-              //  jButton5ActionPerformed(evt);
-            }
-        });
 
         jButton6.setBackground(new java.awt.Color(102, 255, 0));
         jButton6.setForeground(new java.awt.Color(0, 0, 0));
         jButton6.setText("Max Participants");
         jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-             //   jButton6ActionPerformed(evt);
-            }
-        });
 
         AddButton.setBackground(new java.awt.Color(0, 0, 0));
         AddButton.setForeground(new java.awt.Color(255, 255, 255));
         AddButton.setText("Add");
         AddButton.setAlignmentY(0.0F);
-        AddButton.addActionListener(new java.awt.event.ActionListener() {
-        AddButton.setBackground(new java.awt.Color(0, 0, 0));
-        AddButton.setForeground(new java.awt.Color(255, 255, 255));
-        AddButton.setText("Add");
-        AddButton.setAlignmentY(0.0F);
-        AddButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addClassSubmitActionPerformed(evt);
-            }
-        });
 
-        classIdText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane5.setViewportView(classIdText);
+        ClassIdTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane5.setViewportView(ClassIdTextField);
 
-        classNameText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane6.setViewportView(classNameText);
+        ClassNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane6.setViewportView(ClassNameTextField);
 
-        IdField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane7.setViewportView(IdField);
+        TrainerIdTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane7.setViewportView(TrainerIdTextField);
 
-        durationField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane8.setViewportView(durationField);
+        DurationTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane8.setViewportView(DurationTextField);
 
-        maxParticipants.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane9.setViewportView(maxParticipants);
+        MaxParticipantsTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane9.setViewportView(MaxParticipantsTextField);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,7 +129,7 @@ static MainWindow mainWindow;
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(164, 164, 164)
-                        .addComponent(addClassSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -202,7 +158,7 @@ static MainWindow mainWindow;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane9)))
                 .addGap(18, 18, 18)
-                .addComponent(addClassSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -211,33 +167,12 @@ static MainWindow mainWindow;
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel1.setText("                                   Add Class");
 
-        BackButton.setText("Back");
-        BackButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackButtonActionPerformed(evt);
-            }
-        });
-        jLabel1.setText("                                   Add Class");
-
-        BackButton.setText("Back");
-        BackButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(BackButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
-                .addGap(40, 40, 40)
-                .addComponent(BackButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(118, 118, 118)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -245,12 +180,7 @@ static MainWindow mainWindow;
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                    .addComponent(BackButton))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                    .addComponent(BackButton))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -333,17 +263,17 @@ static MainWindow mainWindow;
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AddClass(mainWindow,trainerRole).setVisible(true);
-                new AddClass(mainWindow,trainerRole).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextPane IdField;
-    private javax.swing.JButton addClassSubmit;
-    private javax.swing.JTextPane classIdText;
-    private javax.swing.JTextPane classNameText;
-    private javax.swing.JTextPane durationField;
+    private javax.swing.JButton AddButton;
+    private javax.swing.JTextPane ClassIdTextField;
+    private javax.swing.JTextPane ClassNameTextField;
+    private javax.swing.JTextPane DurationTextField;
+    private javax.swing.JTextPane MaxParticipantsTextField;
+    private javax.swing.JTextPane TrainerIdTextField;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -360,6 +290,5 @@ static MainWindow mainWindow;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextPane maxParticipants;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,16 +15,20 @@ public class ViewMembers extends javax.swing.JFrame {
     /**
      * Creates new form ViewMembers
      */
-    public ViewMembers() {
+    static TrainerRoleWindow trainerRoleWindow;
+    static TrainerRole trainerRole;
+    public ViewMembers(TrainerRoleWindow trainerRoleWindow,TrainerRole trainerRole) {
         initComponents();
         setLocationRelativeTo(null);
+        this.trainerRole = trainerRole;
+        this.trainerRoleWindow = trainerRoleWindow;
         setTitle("View Members");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         loadMembersData();
     }
     private void loadMembersData() {
         DefaultTableModel model = (DefaultTableModel) ViewMembersTable.getModel();
-        MemberDatabase db = new MemberDatabase();
-        ArrayList<Users> Members = db.returnAllRecords();
+        ArrayList<Users> Members = trainerRole.getListOfMembers();
         for (Users user : Members) {
             String [] splitted = user.lineRepresentation().split(", ");
             model.addRow(new String[]{
@@ -110,7 +114,7 @@ public class ViewMembers extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewMembers().setVisible(true);
+                new ViewMembers(trainerRoleWindow,trainerRole).setVisible(true);
             }
         });
     }

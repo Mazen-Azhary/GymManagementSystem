@@ -12,15 +12,22 @@ import javax.swing.JOptionPane;
  * @author Mazen
  */
 public class TrainerRoleWindow extends javax.swing.JFrame {
-//static MainWindow parent;
-TrainerRole trainerRole;
+static TrainerLoginPage trainerLoginPage;
+static TrainerRole trainerRole;
+static MainWindow mainWindow;
+static ViewClasses viewClassesTable;
+static ViewMembers viewMembersTable;
+static ViewRegistrations viewRegistrationsTable;
+static ViewTrainers viewTrainersTable;
     /**
      * Creates new form TrainerRole
      */
-    public TrainerRoleWindow() {
-        //this.parent=parent;
+    public TrainerRoleWindow(TrainerLoginPage trainerLoginPage,MainWindow mainWindow) {
+        this.trainerLoginPage = trainerLoginPage;
         this.trainerRole=new TrainerRole();
+        this.mainWindow = mainWindow;
         initComponents();   
+        setLocationRelativeTo(null);
          jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
     }
 
@@ -53,13 +60,28 @@ TrainerRole trainerRole;
 
         AddClassButton.setText("Add Class");
 
-        viewClassButton.setText("View Class");
+        viewClassButton.setText("View Classes");
+        viewClassButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewClassButtonActionPerformed(evt);
+            }
+        });
 
         RegisterMemberForClassButton.setText("Register Member for class");
 
         ViewMembersButton.setText("View Members");
+        ViewMembersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewMembersButtonActionPerformed(evt);
+            }
+        });
 
-        viewRegistrationButton.setText("View Registration");
+        viewRegistrationButton.setText("View Registrations");
+        viewRegistrationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewRegistrationButtonActionPerformed(evt);
+            }
+        });
 
         CancelRegistrationButton.setText("Cancel Registration");
 
@@ -131,7 +153,7 @@ TrainerRole trainerRole;
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AddMembersButton)
                 .addGap(18, 18, 18)
                 .addComponent(ViewMembersButton)
@@ -164,7 +186,33 @@ TrainerRole trainerRole;
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         this.trainerRole.logout();
         JOptionPane.showMessageDialog(null, "Succesful Logout");
+        this.setVisible(false);
+        this.mainWindow.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void ViewMembersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewMembersButtonActionPerformed
+        if (viewMembersTable == null) {
+        viewMembersTable = new ViewMembers(this, trainerRole);
+    }
+    //this.setVisible(false);
+    viewMembersTable.setVisible(true);
+    }//GEN-LAST:event_ViewMembersButtonActionPerformed
+
+    private void viewClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewClassButtonActionPerformed
+        if (viewClassesTable == null) {
+        viewClassesTable = new ViewClasses(this, trainerRole);
+    }
+    //this.setVisible(false);
+    viewClassesTable.setVisible(true);
+    }//GEN-LAST:event_viewClassButtonActionPerformed
+
+    private void viewRegistrationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRegistrationButtonActionPerformed
+        if (viewRegistrationsTable == null) {
+        viewRegistrationsTable = new ViewRegistrations(this, trainerRole);
+    }
+    //this.setVisible(false);
+    viewRegistrationsTable.setVisible(true);
+    }//GEN-LAST:event_viewRegistrationButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,7 +245,7 @@ TrainerRole trainerRole;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TrainerRoleWindow().setVisible(true);
+                new TrainerRoleWindow(trainerLoginPage,mainWindow).setVisible(true);
             }
         });
     }

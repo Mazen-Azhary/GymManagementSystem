@@ -18,10 +18,15 @@ public class ViewTrainers extends javax.swing.JFrame {
     /**
      * Creates new form ViewTrainers
      */
-    public ViewTrainers() {
+    static AdminPage adminPage;
+    static AdminRole adminRole;
+    public ViewTrainers(AdminPage adminPage,AdminRole adminRole) {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("View Trainers");
+        this.adminRole = adminRole;
+        this.adminPage = adminPage;
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         loadTrainerData();
     }
 
@@ -68,8 +73,7 @@ public class ViewTrainers extends javax.swing.JFrame {
 
     private void loadTrainerData() {
         DefaultTableModel model = (DefaultTableModel) TrainersTable.getModel();
-        TrainerDatabase db = new TrainerDatabase();
-        ArrayList<Users> trainers = db.returnAllRecords();
+        ArrayList<Users> trainers = this.adminRole.getListOfTrainers();
         for (Users user : trainers) {
             String [] splitted = user.lineRepresentation().split(", ");
                 model.addRow(new String[]{
@@ -111,7 +115,7 @@ public class ViewTrainers extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewTrainers().setVisible(true);
+                new ViewTrainers(adminPage,adminRole).setVisible(true);
             }
         });
     }
