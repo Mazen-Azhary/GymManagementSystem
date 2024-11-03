@@ -36,21 +36,21 @@ public class AddTrainerWindow extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        AddTrainerButton = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
+        TrainerIdText = new javax.swing.JTextPane();
         jButton4 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTextPane6 = new javax.swing.JTextPane();
+        SpecialityText = new javax.swing.JTextPane();
         jButton3 = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextPane5 = new javax.swing.JTextPane();
+        EmailText = new javax.swing.JTextPane();
         jButton6 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextPane4 = new javax.swing.JTextPane();
+        TrainerNameText = new javax.swing.JTextPane();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTextPane7 = new javax.swing.JTextPane();
+        PhoneNumberText = new javax.swing.JTextPane();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -80,18 +80,18 @@ public class AddTrainerWindow extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(0, 0, 0));
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Add");
-        jButton7.setAlignmentY(0.0F);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        AddTrainerButton.setBackground(new java.awt.Color(0, 0, 0));
+        AddTrainerButton.setForeground(new java.awt.Color(255, 255, 255));
+        AddTrainerButton.setText("Add");
+        AddTrainerButton.setAlignmentY(0.0F);
+        AddTrainerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                AddTrainerButtonActionPerformed(evt);
             }
         });
 
-        jTextPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane5.setViewportView(jTextPane3);
+        TrainerIdText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane5.setViewportView(TrainerIdText);
 
         jButton4.setBackground(new java.awt.Color(102, 255, 0));
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
@@ -113,8 +113,8 @@ public class AddTrainerWindow extends javax.swing.JFrame {
             }
         });
 
-        jTextPane6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane8.setViewportView(jTextPane6);
+        SpecialityText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane8.setViewportView(SpecialityText);
 
         jButton3.setBackground(new java.awt.Color(102, 255, 0));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
@@ -126,8 +126,8 @@ public class AddTrainerWindow extends javax.swing.JFrame {
             }
         });
 
-        jTextPane5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane7.setViewportView(jTextPane5);
+        EmailText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane7.setViewportView(EmailText);
 
         jButton6.setBackground(new java.awt.Color(102, 255, 0));
         jButton6.setForeground(new java.awt.Color(0, 0, 0));
@@ -139,11 +139,11 @@ public class AddTrainerWindow extends javax.swing.JFrame {
             }
         });
 
-        jTextPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane6.setViewportView(jTextPane4);
+        TrainerNameText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane6.setViewportView(TrainerNameText);
 
-        jTextPane7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane9.setViewportView(jTextPane7);
+        PhoneNumberText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane9.setViewportView(PhoneNumberText);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -166,8 +166,8 @@ public class AddTrainerWindow extends javax.swing.JFrame {
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(173, 173, 173)
+                .addComponent(AddTrainerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -193,15 +193,15 @@ public class AddTrainerWindow extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane9)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addComponent(AddTrainerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel1.setText("                                                 Add Trainer");
+        jLabel1.setText("                                                           Add Trainer");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -268,9 +268,9 @@ public class AddTrainerWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void AddTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTrainerButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_AddTrainerButtonActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -324,12 +324,17 @@ public class AddTrainerWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddTrainerButton;
+    private javax.swing.JTextPane EmailText;
+    private javax.swing.JTextPane PhoneNumberText;
+    private javax.swing.JTextPane SpecialityText;
+    private javax.swing.JTextPane TrainerIdText;
+    private javax.swing.JTextPane TrainerNameText;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
@@ -342,10 +347,5 @@ public class AddTrainerWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextPane jTextPane3;
-    private javax.swing.JTextPane jTextPane4;
-    private javax.swing.JTextPane jTextPane5;
-    private javax.swing.JTextPane jTextPane6;
-    private javax.swing.JTextPane jTextPane7;
     // End of variables declaration//GEN-END:variables
 }

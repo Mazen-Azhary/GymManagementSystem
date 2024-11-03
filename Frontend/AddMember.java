@@ -28,23 +28,23 @@ public class AddMember extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
+        memberIdText = new javax.swing.JTextPane();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextPane4 = new javax.swing.JTextPane();
+        NameTextField = new javax.swing.JTextPane();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextPane5 = new javax.swing.JTextPane();
+        EmailTextField = new javax.swing.JTextPane();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTextPane6 = new javax.swing.JTextPane();
+        membershipTypeTextField = new javax.swing.JTextPane();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTextPane7 = new javax.swing.JTextPane();
+        PhoneNumberTextField = new javax.swing.JTextPane();
         jButton6 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        AddMemberButton = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTextPane8 = new javax.swing.JTextPane();
+        statusTextField = new javax.swing.JTextPane();
         jButton8 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -54,20 +54,20 @@ public class AddMember extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane5.setViewportView(jTextPane3);
+        memberIdText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane5.setViewportView(memberIdText);
 
-        jTextPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane6.setViewportView(jTextPane4);
+        NameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane6.setViewportView(NameTextField);
 
-        jTextPane5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane7.setViewportView(jTextPane5);
+        EmailTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane7.setViewportView(EmailTextField);
 
-        jTextPane6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane8.setViewportView(jTextPane6);
+        membershipTypeTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane8.setViewportView(membershipTypeTextField);
 
-        jTextPane7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane9.setViewportView(jTextPane7);
+        PhoneNumberTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane9.setViewportView(PhoneNumberTextField);
 
         jButton6.setBackground(new java.awt.Color(102, 255, 0));
         jButton6.setForeground(new java.awt.Color(0, 0, 0));
@@ -119,18 +119,18 @@ public class AddMember extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(0, 0, 0));
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Add");
-        jButton7.setAlignmentY(0.0F);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        AddMemberButton.setBackground(new java.awt.Color(0, 0, 0));
+        AddMemberButton.setForeground(new java.awt.Color(255, 255, 255));
+        AddMemberButton.setText("Add");
+        AddMemberButton.setAlignmentY(0.0F);
+        AddMemberButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                AddMemberButtonActionPerformed(evt);
             }
         });
 
-        jTextPane8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane10.setViewportView(jTextPane8);
+        statusTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane10.setViewportView(statusTextField);
 
         jButton8.setBackground(new java.awt.Color(102, 255, 0));
         jButton8.setForeground(new java.awt.Color(0, 0, 0));
@@ -166,7 +166,7 @@ public class AddMember extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(150, 150, 150)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AddMemberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -197,7 +197,7 @@ public class AddMember extends javax.swing.JFrame {
                     .addComponent(jScrollPane10)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AddMemberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
 
@@ -287,9 +287,9 @@ public class AddMember extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void AddMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMemberButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_AddMemberButtonActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
@@ -331,12 +331,15 @@ public class AddMember extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddMemberButton;
+    private javax.swing.JTextPane EmailTextField;
+    private javax.swing.JTextPane NameTextField;
+    private javax.swing.JTextPane PhoneNumberTextField;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -350,11 +353,8 @@ public class AddMember extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextPane jTextPane3;
-    private javax.swing.JTextPane jTextPane4;
-    private javax.swing.JTextPane jTextPane5;
-    private javax.swing.JTextPane jTextPane6;
-    private javax.swing.JTextPane jTextPane7;
-    private javax.swing.JTextPane jTextPane8;
+    private javax.swing.JTextPane memberIdText;
+    private javax.swing.JTextPane membershipTypeTextField;
+    private javax.swing.JTextPane statusTextField;
     // End of variables declaration//GEN-END:variables
 }

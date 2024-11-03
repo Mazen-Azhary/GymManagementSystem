@@ -28,7 +28,7 @@ public class ViewRegistrations extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ViewRegistrationsTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -37,7 +37,7 @@ public class ViewRegistrations extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ViewRegistrationsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -45,7 +45,7 @@ public class ViewRegistrations extends javax.swing.JFrame {
                 "Member Id", "Class Id", "Reg Date"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ViewRegistrationsTable);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -161,12 +161,12 @@ public class ViewRegistrations extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable ViewRegistrationsTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
