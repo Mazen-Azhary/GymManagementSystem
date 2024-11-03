@@ -3,8 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Frontend;
-
+import Backend.*;
 import javax.swing.BoxLayout;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,11 +13,13 @@ import javax.swing.BoxLayout;
  */
 public class TrainerRoleWindow extends javax.swing.JFrame {
 static MainWindow parent;
+TrainerRole trainerRole;
     /**
      * Creates new form TrainerRole
      */
     public TrainerRoleWindow(MainWindow parent) {
         this.parent=parent;
+        this.trainerRole=new TrainerRole();
         initComponents();   
          jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
     }
@@ -31,14 +34,14 @@ static MainWindow parent;
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        AddMembersButton = new javax.swing.JButton();
+        ViewMembersButton = new javax.swing.JButton();
+        AddClassButton = new javax.swing.JButton();
+        viewClassButton = new javax.swing.JButton();
+        RegisterMemberForClassButton = new javax.swing.JButton();
+        CancelRegistrationButton = new javax.swing.JButton();
+        viewRegistrationButton = new javax.swing.JButton();
+        LogoutButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -48,29 +51,39 @@ static MainWindow parent;
         jPanel1.setMaximumSize(new java.awt.Dimension(120, 24));
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
 
-        jButton1.setText("Add Members");
-        jPanel1.add(jButton1);
+        AddMembersButton.setText("Add Members");
+        AddMembersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddMembersButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(AddMembersButton);
 
-        jButton2.setText("View Members");
-        jPanel1.add(jButton2);
+        ViewMembersButton.setText("View Members");
+        jPanel1.add(ViewMembersButton);
 
-        jButton3.setText("Add Class");
-        jPanel1.add(jButton3);
+        AddClassButton.setText("Add Class");
+        jPanel1.add(AddClassButton);
 
-        jButton4.setText("View Class");
-        jPanel1.add(jButton4);
+        viewClassButton.setText("View Class");
+        jPanel1.add(viewClassButton);
 
-        jButton5.setText("Register Member for class");
-        jPanel1.add(jButton5);
+        RegisterMemberForClassButton.setText("Register Member for class");
+        jPanel1.add(RegisterMemberForClassButton);
 
-        jButton6.setText("Cancel Registration");
-        jPanel1.add(jButton6);
+        CancelRegistrationButton.setText("Cancel Registration");
+        jPanel1.add(CancelRegistrationButton);
 
-        jButton7.setText("View Registration");
-        jPanel1.add(jButton7);
+        viewRegistrationButton.setText("View Registration");
+        jPanel1.add(viewRegistrationButton);
 
-        jButton8.setText("Logout");
-        jPanel1.add(jButton8);
+        LogoutButton.setText("Logout");
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LogoutButton);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
         jPanel1.getAccessibleContext().setAccessibleName("");
@@ -113,6 +126,17 @@ static MainWindow parent;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void AddMembersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMembersButtonActionPerformed
+        AddMember a = new AddMember(this);
+        this.setVisible(false);
+        a.setVisible(true);      
+    }//GEN-LAST:event_AddMembersButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        this.trainerRole.logout();
+        JOptionPane.showMessageDialog(null, "Succesful Logout");
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -150,17 +174,17 @@ static MainWindow parent;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton AddClassButton;
+    private javax.swing.JButton AddMembersButton;
+    private javax.swing.JButton CancelRegistrationButton;
+    private javax.swing.JButton LogoutButton;
+    private javax.swing.JButton RegisterMemberForClassButton;
+    private javax.swing.JButton ViewMembersButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton viewClassButton;
+    private javax.swing.JButton viewRegistrationButton;
     // End of variables declaration//GEN-END:variables
 }

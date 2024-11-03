@@ -4,16 +4,20 @@
  */
 package Frontend;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mazen
  */
 public class AddMember extends javax.swing.JFrame {
-
+static TrainerRoleWindow parent;
     /**
      * Creates new form AddMember
      */
-    public AddMember() {
+    public AddMember(TrainerRoleWindow parent) {
+        this.parent=parent;
+        this.setTitle("Add Member Window");
         initComponents();
     }
 
@@ -75,7 +79,7 @@ public class AddMember extends javax.swing.JFrame {
         jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+               // jButton6ActionPerformed(evt);
             }
         });
 
@@ -85,7 +89,7 @@ public class AddMember extends javax.swing.JFrame {
         jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+              //  jButton5ActionPerformed(evt);
             }
         });
 
@@ -95,7 +99,7 @@ public class AddMember extends javax.swing.JFrame {
         jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+             //   jButton4ActionPerformed(evt);
             }
         });
 
@@ -105,7 +109,7 @@ public class AddMember extends javax.swing.JFrame {
         jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+               // jButton3ActionPerformed(evt);
             }
         });
 
@@ -115,7 +119,7 @@ public class AddMember extends javax.swing.JFrame {
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+              //  jButton2ActionPerformed(evt);
             }
         });
 
@@ -138,7 +142,7 @@ public class AddMember extends javax.swing.JFrame {
         jButton8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+               // jButton8ActionPerformed(evt);
             }
         });
 
@@ -267,33 +271,19 @@ public class AddMember extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void AddMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMemberButtonActionPerformed
-        // TODO add your handling code here:
+       
+       if(PhoneNumberTextField.getText().length()==11){ 
+        String[] data = {memberIdText.getText(),NameTextField.getText(),EmailTextField.getText(),membershipTypeTextField.getText(),PhoneNumberTextField.getText(),statusTextField.getText()};
+       }else{
+           JOptionPane.showMessageDialog(null, "Enter a valid phone number","Error in phone number",JOptionPane.ERROR_MESSAGE);
+       }
+        
+        
     }//GEN-LAST:event_AddMemberButtonActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,7 +315,7 @@ public class AddMember extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddMember().setVisible(true);
+                new AddMember(parent).setVisible(true);
             }
         });
     }
