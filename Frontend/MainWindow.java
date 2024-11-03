@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package gymproject;
-
+package Frontend;
+import Backend.*;
 import java.awt.Color;
 
 /**
@@ -139,7 +139,7 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AdminRoleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminRoleButtonActionPerformed
-        AdminLoginPage adminLogin = new AdminLoginPage(this);
+        AdminLoginWindow adminLogin = new AdminLoginWindow(this);
         adminLogin.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_AdminRoleButtonActionPerformed

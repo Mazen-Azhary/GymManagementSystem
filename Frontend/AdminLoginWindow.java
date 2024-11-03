@@ -4,17 +4,18 @@
  */
 package Frontend;
 import javax.swing.*;
-
+import Backend.*;
 /**
  *
  * @author Etijah
  */
 public class AdminLoginWindow extends javax.swing.JFrame {
-
+static MainWindow mainWindow;
     /**
      * Creates new form AdminLoginWindow
      */
-    public AdminLoginWindow() {
+    public AdminLoginWindow(MainWindow mainWindow) {
+        this.mainWindow=mainWindow;
         initComponents();
         setTitle("Admin Login");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -224,7 +225,7 @@ public class AdminLoginWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminLoginWindow().setVisible(true);
+                new AdminLoginWindow(mainWindow).setVisible(true);
             }
         });
     }
