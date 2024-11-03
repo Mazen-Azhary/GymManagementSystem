@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class ClassDatabase extends DataBases {
 
     public ClassDatabase() {
-        super("src/gymproject/Class.txt");
+        super("src/Backend/Class.txt");
     }
 
     public Users createRecordFrom(String Line) {

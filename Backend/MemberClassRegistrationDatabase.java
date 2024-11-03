@@ -3,7 +3,7 @@ import java.util.Objects;
 
 public class MemberClassRegistrationDatabase extends DataBases {
     public MemberClassRegistrationDatabase() {
-        super("src/gymproject/Registration.txt");
+        super("src/Backend/Registration.txt");
     }
 
     public Users createRecordFrom(String Line) {

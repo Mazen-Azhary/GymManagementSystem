@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class TrainerDatabase extends DataBases {
 
     public TrainerDatabase() {
-        super("src/gymproject/Trainers.txt");
+        super("src/Backend/Trainers.txt");
     }
 
     public Users createRecordFrom(String Line) {

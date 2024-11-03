@@ -5,6 +5,7 @@
 package Frontend;
 import javax.swing.*;
 import Backend.*;
+import constants.*;
 /**
  *
  * @author Etijah
@@ -34,10 +35,10 @@ static MainWindow mainWindow;
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
+        AdminPasswordTextField = new javax.swing.JTextPane();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
-        jButton3 = new javax.swing.JButton();
+        AdminUserNameTextField = new javax.swing.JTextPane();
+        AdminLoginSubmissionButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -48,17 +49,17 @@ static MainWindow mainWindow;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane4.setViewportView(jTextPane2);
+        jScrollPane4.setViewportView(AdminPasswordTextField);
 
-        jScrollPane5.setViewportView(jTextPane3);
+        jScrollPane5.setViewportView(AdminUserNameTextField);
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Login");
-        jButton3.setAlignmentY(0.0F);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        AdminLoginSubmissionButton.setBackground(new java.awt.Color(0, 0, 0));
+        AdminLoginSubmissionButton.setForeground(new java.awt.Color(255, 255, 255));
+        AdminLoginSubmissionButton.setText("Login");
+        AdminLoginSubmissionButton.setAlignmentY(0.0F);
+        AdminLoginSubmissionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                AdminLoginSubmissionButtonActionPerformed(evt);
             }
         });
 
@@ -98,7 +99,7 @@ static MainWindow mainWindow;
                 .addGap(26, 26, 26))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(149, 149, 149)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AdminLoginSubmissionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -113,7 +114,7 @@ static MainWindow mainWindow;
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                     .addComponent(jScrollPane4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AdminLoginSubmissionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
@@ -185,9 +186,23 @@ static MainWindow mainWindow;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void AdminLoginSubmissionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLoginSubmissionButtonActionPerformed
+        String Username = AdminUserNameTextField.getText();
+        String Password =AdminPasswordTextField.getText();
+        if(Username.equalsIgnoreCase(LoginCredentials.ADMIN_USERNAME) && Password.equalsIgnoreCase(LoginCredentials.ADMIN_PASSWORD)){
+            JOptionPane.showMessageDialog(null, "Welcome Admin");
+            AdminPage adminpage = new AdminPage(mainWindow);
+            this.setVisible(false);
+            adminpage.setVisible(true);
+        }else if(Username.isBlank() || Password.isBlank()){
+        JOptionPane.showMessageDialog(null, "Please enter username and password", "Error in credentials", JOptionPane.ERROR_MESSAGE);
+        
+        }else{
+        JOptionPane.showMessageDialog(null, "Please enter correct username and password", "Error in credentials", JOptionPane.ERROR_MESSAGE);
+        
+        }
+    
+    }//GEN-LAST:event_AdminLoginSubmissionButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -229,9 +244,11 @@ static MainWindow mainWindow;
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AdminLoginSubmissionButton;
+    private javax.swing.JTextPane AdminPasswordTextField;
+    private javax.swing.JTextPane AdminUserNameTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -240,7 +257,5 @@ static MainWindow mainWindow;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane3;
     // End of variables declaration//GEN-END:variables
 }
