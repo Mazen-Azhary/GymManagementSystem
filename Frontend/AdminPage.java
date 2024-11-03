@@ -14,6 +14,7 @@ public class AdminPage extends javax.swing.JFrame {
 
     AdminRole admin;
     static MainWindow mainWindow;
+    
     /**
      * Creates new form AdminPage
      */
