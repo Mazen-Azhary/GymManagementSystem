@@ -156,7 +156,7 @@ TrainerRole trainerRole;
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddMembersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMembersButtonActionPerformed
-        AddMember a = new AddMember(this);
+        AddMember a = new AddMember(this,trainerRole);
         this.setVisible(false);
         a.setVisible(true);
     }//GEN-LAST:event_AddMembersButtonActionPerformed

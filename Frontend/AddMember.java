@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Frontend;
+import Backend.*;
 
 import javax.swing.JOptionPane;
 
@@ -12,11 +13,14 @@ import javax.swing.JOptionPane;
  */
 public class AddMember extends javax.swing.JFrame {
 static TrainerRoleWindow parent;
+static TrainerRole trainerRole;
+
     /**
      * Creates new form AddMember
      */
-    public AddMember(TrainerRoleWindow parent) {
+    public AddMember(TrainerRoleWindow parent,TrainerRole trainerRole) {
         this.parent=parent;
+        this.trainerRole=trainerRole;
         this.setTitle("Add Member Window");
         initComponents();
         setTitle("Add Member");
@@ -278,7 +282,9 @@ static TrainerRoleWindow parent;
     private void AddMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMemberButtonActionPerformed
        
        if(PhoneNumberTextField.getText().length()==11){ 
-        String[] data = {memberIdText.getText(),NameTextField.getText(),EmailTextField.getText(),membershipTypeTextField.getText(),PhoneNumberTextField.getText(),statusTextField.getText()};
+        this.trainerRole.addMember(memberIdText.getText(),NameTextField.getText(),EmailTextField.getText(),membershipTypeTextField.getText(),PhoneNumberTextField.getText(),statusTextField.getText());
+        JOptionPane.showMessageDialog(null,"Succesful entry");  
+        
        }else{
            JOptionPane.showMessageDialog(null, "Enter a valid phone number","Error in phone number",JOptionPane.ERROR_MESSAGE);
        }
@@ -317,7 +323,7 @@ static TrainerRoleWindow parent;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddMember(parent).setVisible(true);
+                new AddMember(parent,trainerRole).setVisible(true);
             }
         });
     }
