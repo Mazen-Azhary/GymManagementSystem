@@ -19,7 +19,6 @@ static MainWindow mainWindow;
         initComponents();
         setTitle("Admin Login");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(300, 200);
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -123,7 +122,7 @@ static MainWindow mainWindow;
         jPanel2.setPreferredSize(new java.awt.Dimension(580, 50));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel1.setText("                                                           Admin Login");
+        jLabel1.setText("                                                       Admin Login");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

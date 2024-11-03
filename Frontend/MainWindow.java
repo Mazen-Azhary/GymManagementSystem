@@ -16,7 +16,7 @@ public class MainWindow extends javax.swing.JFrame {
      * Creates new form MainWindow
      */
     public MainWindow() {
-        this.setTitle("Gym Management");
+        this.setTitle("Gym System");
         initComponents();
     }
 
