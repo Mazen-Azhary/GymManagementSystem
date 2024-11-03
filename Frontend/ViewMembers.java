@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Frontend;
-
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import Backend.*;
 /**
  *
  * @author Mazen
@@ -15,8 +17,26 @@ public class ViewMembers extends javax.swing.JFrame {
      */
     public ViewMembers() {
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("View Members");
+        loadMembersData();
     }
-
+    private void loadMembersData() {
+        DefaultTableModel model = (DefaultTableModel) ViewMembersTable.getModel();
+        MemberDatabase db = new MemberDatabase();
+        ArrayList<Users> Members = db.returnAllRecords();
+        for (Users user : Members) {
+            String [] splitted = user.lineRepresentation().split(", ");
+            model.addRow(new String[]{
+                    splitted[0],
+                    splitted[1],
+                    splitted[2],
+                    splitted[3],
+                    splitted[4],
+                    splitted[5]
+            });
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,11 +47,11 @@ public class ViewMembers extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ViewMembersTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ViewMembersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -39,7 +59,7 @@ public class ViewMembers extends javax.swing.JFrame {
                 "ID", "Name", "Email", "Membership type", "Phone Number", "Status"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ViewMembersTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -53,9 +73,8 @@ public class ViewMembers extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(181, 181, 181))
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -98,6 +117,6 @@ public class ViewMembers extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable ViewMembersTable;
     // End of variables declaration//GEN-END:variables
 }

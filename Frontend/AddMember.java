@@ -19,6 +19,8 @@ static TrainerRoleWindow parent;
         this.parent=parent;
         this.setTitle("Add Member Window");
         initComponents();
+        setTitle("Add Member");
+        setLocationRelativeTo(null);
     }
 
     /**

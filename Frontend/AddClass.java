@@ -15,6 +15,8 @@ public class AddClass extends javax.swing.JFrame {
      */
     public AddClass() {
         initComponents();
+        setTitle("Add Class");
+        setLocationRelativeTo(null);
     }
 
     /**
