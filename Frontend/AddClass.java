@@ -3,18 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Frontend;
+import Backend.*;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Mazen
  */
 public class AddClass extends javax.swing.JFrame {
+//static TrainerRoleWindow parent;
+static TrainerRole trainerRole;
+static MainWindow mainWindow;
 
     /**
      * Creates new form AddClass
      */
-    public AddClass() {
+    public AddClass(MainWindow parent,TrainerRole trainerRole) {
         initComponents();
+        this.mainWindow=parent;
+        this.trainerRole=trainerRole;
         setTitle("Add Class");
         setLocationRelativeTo(null);
     }
@@ -47,6 +54,7 @@ public class AddClass extends javax.swing.JFrame {
         maxParticipants = new javax.swing.JTextPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        BackButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -103,11 +111,11 @@ public class AddClass extends javax.swing.JFrame {
             }
         });
 
-        addClassSubmit.setBackground(new java.awt.Color(0, 0, 0));
-        addClassSubmit.setForeground(new java.awt.Color(255, 255, 255));
-        addClassSubmit.setText("Add");
-        addClassSubmit.setAlignmentY(0.0F);
-        addClassSubmit.addActionListener(new java.awt.event.ActionListener() {
+        AddButton.setBackground(new java.awt.Color(0, 0, 0));
+        AddButton.setForeground(new java.awt.Color(255, 255, 255));
+        AddButton.setText("Add");
+        AddButton.setAlignmentY(0.0F);
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addClassSubmitActionPerformed(evt);
             }
@@ -187,22 +195,33 @@ public class AddClass extends javax.swing.JFrame {
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel1.setText("                                                          Add Class");
+        jLabel1.setText("                                   Add Class");
+
+        BackButton.setText("Back");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
+                .addComponent(BackButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                    .addComponent(BackButton))
                 .addContainerGap())
         );
 
@@ -284,7 +303,7 @@ public class AddClass extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddClass().setVisible(true);
+                new AddClass(mainWindow,trainerRole).setVisible(true);
             }
         });
     }

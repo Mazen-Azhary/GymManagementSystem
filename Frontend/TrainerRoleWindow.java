@@ -12,13 +12,13 @@ import javax.swing.JOptionPane;
  * @author Mazen
  */
 public class TrainerRoleWindow extends javax.swing.JFrame {
-static MainWindow parent;
+//static MainWindow parent;
 TrainerRole trainerRole;
     /**
      * Creates new form TrainerRole
      */
-    public TrainerRoleWindow(MainWindow parent) {
-        this.parent=parent;
+    public TrainerRoleWindow() {
+        //this.parent=parent;
         this.trainerRole=new TrainerRole();
         initComponents();   
          jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
@@ -197,7 +197,7 @@ TrainerRole trainerRole;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TrainerRoleWindow(parent).setVisible(true);
+                new TrainerRoleWindow().setVisible(true);
             }
         });
     }
