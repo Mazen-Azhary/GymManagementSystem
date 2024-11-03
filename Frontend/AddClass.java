@@ -5,6 +5,8 @@
 package Frontend;
 import Backend.*;
 import javax.swing.JOptionPane;
+import Backend.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,12 +16,18 @@ public class AddClass extends javax.swing.JFrame {
 //static TrainerRoleWindow parent;
 static TrainerRole trainerRole;
 static MainWindow mainWindow;
+//static TrainerRoleWindow parent;
+static TrainerRole trainerRole;
+static MainWindow mainWindow;
 
     /**
      * Creates new form AddClass
      */
     public AddClass(MainWindow parent,TrainerRole trainerRole) {
+    public AddClass(MainWindow parent,TrainerRole trainerRole) {
         initComponents();
+        this.mainWindow=parent;
+        this.trainerRole=trainerRole;
         this.mainWindow=parent;
         this.trainerRole=trainerRole;
         setTitle("Add Class");
@@ -54,6 +62,7 @@ static MainWindow mainWindow;
         maxParticipants = new javax.swing.JTextPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        BackButton = new javax.swing.JButton();
         BackButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -111,6 +120,11 @@ static MainWindow mainWindow;
             }
         });
 
+        AddButton.setBackground(new java.awt.Color(0, 0, 0));
+        AddButton.setForeground(new java.awt.Color(255, 255, 255));
+        AddButton.setText("Add");
+        AddButton.setAlignmentY(0.0F);
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
         AddButton.setBackground(new java.awt.Color(0, 0, 0));
         AddButton.setForeground(new java.awt.Color(255, 255, 255));
         AddButton.setText("Add");
@@ -203,6 +217,14 @@ static MainWindow mainWindow;
                 BackButtonActionPerformed(evt);
             }
         });
+        jLabel1.setText("                                   Add Class");
+
+        BackButton.setText("Back");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -213,12 +235,19 @@ static MainWindow mainWindow;
                 .addComponent(BackButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
+                .addComponent(BackButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                    .addComponent(BackButton))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                     .addComponent(BackButton))
@@ -303,6 +332,7 @@ static MainWindow mainWindow;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                new AddClass(mainWindow,trainerRole).setVisible(true);
                 new AddClass(mainWindow,trainerRole).setVisible(true);
             }
         });
