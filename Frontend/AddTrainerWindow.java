@@ -9,11 +9,12 @@ package Frontend;
  * @author Mazen
  */
 public class AddTrainerWindow extends javax.swing.JFrame {
-
+static TrainerRoleWindow parent;
     /**
      * Creates new form AddTrainerWindow
      */
-    public AddTrainerWindow() {
+    public AddTrainerWindow(TrainerRoleWindow parent) {
+        this.parent=parent;
         this.setTitle("Add Trainer");
         initComponents();
     }
@@ -235,7 +236,7 @@ public class AddTrainerWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddTrainerWindow().setVisible(true);
+                new AddTrainerWindow(parent).setVisible(true);
             }
         });
     }

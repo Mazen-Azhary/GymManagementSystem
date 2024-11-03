@@ -10,13 +10,13 @@ import javax.swing.BoxLayout;
  *
  * @author Mazen
  */
-public class TrainerRole extends javax.swing.JFrame {
-
+public class TrainerRoleWindow extends javax.swing.JFrame {
+static MainWindow parent;
     /**
      * Creates new form TrainerRole
      */
-    public TrainerRole() {
-        
+    public TrainerRoleWindow(MainWindow parent) {
+        this.parent=parent;
         initComponents();   
          jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
     }
@@ -130,20 +130,21 @@ public class TrainerRole extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TrainerRole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrainerRoleWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TrainerRole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrainerRoleWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TrainerRole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrainerRoleWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TrainerRole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TrainerRoleWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TrainerRole().setVisible(true);
+                new TrainerRoleWindow(parent).setVisible(true);
             }
         });
     }

@@ -189,7 +189,9 @@ public static MainWindow mainWindow;
         String Password =TrainerPasswordTextField.getText();
         if(Username.equalsIgnoreCase(LoginCredentials.TRAINER_USERNAME) && Password.equalsIgnoreCase(LoginCredentials.TRAINER_PASSWORD)){
             JOptionPane.showMessageDialog(null, "Welcome Trainer");
-            //new obj of admin role page
+            TrainerRoleWindow trainerRole = new TrainerRoleWindow(this.mainWindow);
+            this.setVisible(false);
+            trainerRole.setVisible(true);
         }else if(Username.isBlank() || Password.isBlank()){
         JOptionPane.showMessageDialog(null, "Please enter username and password", "Error in credentials", JOptionPane.ERROR_MESSAGE);
         
