@@ -4,20 +4,26 @@
  */
 package Frontend;
 
+import Backend.AdminRole;
+import Backend.TrainerRole;
+
 /**
  *
  * @author Mazen
  */
 public class AddTrainerWindow extends javax.swing.JFrame {
-static TrainerRoleWindow parent;
+static AdminPage parent;
+static AdminRole adminRole;
     /**
      * Creates new form AddTrainerWindow
      */
-    public AddTrainerWindow(TrainerRoleWindow parent) {
+    public AddTrainerWindow(AdminPage parent,AdminRole adminRole) {
         this.parent=parent;
+        this.adminRole=adminRole;
         this.setTitle("Add Trainer");
         setLocationRelativeTo(null);
         initComponents();
+        this.setVisible(true);
     }
 
     /**
@@ -237,7 +243,7 @@ static TrainerRoleWindow parent;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddTrainerWindow(parent).setVisible(true);
+                new AddTrainerWindow(parent,adminRole).setVisible(true);
             }
         });
     }

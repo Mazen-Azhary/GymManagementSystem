@@ -59,8 +59,23 @@ public class AdminPage extends javax.swing.JFrame {
                 AddTrainerButtonActionPerformed(evt);
             }
         });
+        RemoveTrainerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveTrainerButtonActionPerformed(evt);
+            }
+        });
 
         AdminLogoutButton.setText("Logout");
+        AdminLogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminLogoutButtonActionPerformed(evt);
+            }
+        });
+        ViewTrainerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewTrainerButtonActionPerformed(evt);
+            }
+        });
         AdminLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AdminLogoutButtonActionPerformed(evt);
@@ -181,7 +196,9 @@ public class AdminPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTrainerButtonActionPerformed
-        // TODO add your handling code here:
+
+        this.setVisible(false);
+        AddTrainerWindow addTrainer = new AddTrainerWindow(this,admin); 
     }//GEN-LAST:event_AddTrainerButtonActionPerformed
 
     private void AdminLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLogoutButtonActionPerformed
@@ -191,6 +208,18 @@ public class AdminPage extends javax.swing.JFrame {
         this.mainWindow.setVisible(true);
     }//GEN-LAST:event_AdminLogoutButtonActionPerformed
 
+    private void  ViewTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewTrainerButtonActionPerformed
+        this.setVisible(false);
+        ViewTrainers viewTrainer = new ViewTrainers(this,admin);
+        viewTrainer.setVisible(true);
+
+    }
+    private void  RemoveTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewTrainerButtonActionPerformed
+        this.setVisible(false);
+        RemoveTrainerWindow removeTrainer = new RemoveTrainerWindow(this,admin);
+        removeTrainer.setVisible(true);
+
+    }
     /**
      * @param args the command line arguments
      */

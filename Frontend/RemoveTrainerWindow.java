@@ -4,6 +4,7 @@
  */
 package Frontend;
 
+import Backend.AdminRole;
 import javax.swing.JFrame;
 
 /**
@@ -11,17 +12,20 @@ import javax.swing.JFrame;
  * @author Etijah
  */
 public class RemoveTrainerWindow extends javax.swing.JFrame {
-
+static AdminPage parent;
+static AdminRole adminRole;
     /**
      * Creates new form RemoveTrainerWindow
      */
-    public RemoveTrainerWindow() {
+    public RemoveTrainerWindow(AdminPage parent,AdminRole adminRole) {   
+        this.parent = parent;
+        this.adminRole = adminRole;
         initComponents();
         setTitle("Remove Trainer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(300, 200);
+       // setSize(300, 200);
         setLocationRelativeTo(null);
-        setVisible(true);
+       // setVisible(true);
     }
 
     /**
@@ -200,7 +204,7 @@ public class RemoveTrainerWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RemoveTrainerWindow().setVisible(true);
+                new RemoveTrainerWindow(parent,adminRole).setVisible(true);
             }
         });
     }
