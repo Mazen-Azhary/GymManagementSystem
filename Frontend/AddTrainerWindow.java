@@ -6,6 +6,7 @@ package Frontend;
 
 import Backend.AdminRole;
 import Backend.TrainerRole;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,15 +40,16 @@ static AdminRole adminRole;
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        TrainerUserNameTextField = new javax.swing.JTextField();
-        TrainerPasswordTextField = new javax.swing.JTextField();
+        TrainerIdTextField = new javax.swing.JTextField();
+        TrainerPhoneNumberTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        TrainerPasswordTextField1 = new javax.swing.JTextField();
-        TrainerPasswordTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        TrainerNameTextField = new javax.swing.JTextField();
+        TrainerSpecialityTextField = new javax.swing.JTextField();
+        AddTrainerButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        BackButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -62,9 +64,9 @@ static AdminRole adminRole;
         jLabel2.setBackground(new java.awt.Color(51, 255, 51));
         jLabel2.setText("Speciality");
 
-        TrainerUserNameTextField.addActionListener(new java.awt.event.ActionListener() {
+        TrainerIdTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TrainerUserNameTextFieldActionPerformed(evt);
+                TrainerIdTextFieldActionPerformed(evt);
             }
         });
 
@@ -74,7 +76,12 @@ static AdminRole adminRole;
         jLabel5.setBackground(new java.awt.Color(51, 255, 51));
         jLabel5.setText("Phone Number");
 
-        jButton1.setText("jButton1");
+        AddTrainerButton.setText("Add Trainer");
+        AddTrainerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddTrainerButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -91,13 +98,13 @@ static AdminRole adminRole;
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(104, 104, 104)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TrainerPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TrainerUserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TrainerPasswordTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TrainerPasswordTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(TrainerPhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TrainerIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TrainerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TrainerSpecialityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(203, 203, 203)
+                        .addComponent(AddTrainerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -112,32 +119,42 @@ static AdminRole adminRole;
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(TrainerUserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TrainerIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)
-                        .addComponent(TrainerPasswordTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TrainerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
-                        .addComponent(TrainerPasswordTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(TrainerSpecialityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TrainerPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TrainerPhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addComponent(AddTrainerButton))
         );
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.CENTER);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel3.setText("                                                                           Add Trainer");
+        jLabel3.setText("                                                                Add Trainer");
         jLabel3.setAlignmentX(0.5F);
         jLabel3.setName(""); // NOI18N
         jLabel3.setPreferredSize(new java.awt.Dimension(800, 40));
+
+        BackButton.setText("Back");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(737, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -146,7 +163,10 @@ static AdminRole adminRole;
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(70, Short.MAX_VALUE)
+                .addComponent(BackButton)
+                .addContainerGap())
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -209,9 +229,33 @@ static AdminRole adminRole;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TrainerUserNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrainerUserNameTextFieldActionPerformed
+    private void TrainerIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrainerIdTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TrainerUserNameTextFieldActionPerformed
+    }//GEN-LAST:event_TrainerIdTextFieldActionPerformed
+
+    private void AddTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTrainerButtonActionPerformed
+        String id = TrainerIdTextField.getText();
+        String name = TrainerNameTextField.getText();
+        String speciality = TrainerSpecialityTextField.getText();
+        String phoneNum = TrainerPhoneNumberTextField.getText();
+        if(id.isBlank()||name.isBlank() || speciality.isBlank() || phoneNum.isBlank()){
+            JOptionPane.showMessageDialog(null, "Enter all fields","Missing Fields",JOptionPane.ERROR_MESSAGE);
+        }else{
+        if(this.adminRole.addTrainer(id, name, name, speciality, phoneNum)){
+        JOptionPane.showMessageDialog(null, "Succesfuly added trainer with id:"+id);
+        }else{
+            JOptionPane.showMessageDialog(null, "User with id:"+id+" already exists","Duplicate entry",JOptionPane.ERROR_MESSAGE);
+        
+        }        
+        }
+        
+        
+    }//GEN-LAST:event_AddTrainerButtonActionPerformed
+
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        this.setVisible(false);
+        this.parent.setVisible(true);
+    }//GEN-LAST:event_BackButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,11 +293,12 @@ static AdminRole adminRole;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TrainerPasswordTextField;
-    private javax.swing.JTextField TrainerPasswordTextField1;
-    private javax.swing.JTextField TrainerPasswordTextField2;
-    private javax.swing.JTextField TrainerUserNameTextField;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton AddTrainerButton;
+    private javax.swing.JButton BackButton;
+    private javax.swing.JTextField TrainerIdTextField;
+    private javax.swing.JTextField TrainerNameTextField;
+    private javax.swing.JTextField TrainerPhoneNumberTextField;
+    private javax.swing.JTextField TrainerSpecialityTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

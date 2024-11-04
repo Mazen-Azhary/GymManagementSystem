@@ -18,14 +18,14 @@ public class ViewTrainers extends javax.swing.JFrame {
     /**
      * Creates new form ViewTrainers
      */
-    static AdminPage adminPage;
+    static AdminPage parent;
     static AdminRole adminRole;
     public ViewTrainers(AdminPage adminPage,AdminRole adminRole) {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("View Trainers");
         this.adminRole = adminRole;
-        this.adminPage = adminPage;
+        this.parent = adminPage;
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         loadTrainerData();
     }
@@ -41,11 +41,12 @@ public class ViewTrainers extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TrainersTable = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
+        BackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        TrainersTable.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -53,7 +54,7 @@ public class ViewTrainers extends javax.swing.JFrame {
                 "ID", "Name", "Email", "Speciality", "Phone Number"
             }
         ));
-        jScrollPane1.setViewportView(TrainersTable);
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -63,16 +64,30 @@ public class ViewTrainers extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
+        BackButton.setText("Back");
+        BackButton.setPreferredSize(new java.awt.Dimension(12, 24));
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BackButton, java.awt.BorderLayout.PAGE_START);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        this.setVisible(false);
+        this.parent.setVisible(true);
+    }//GEN-LAST:event_BackButtonActionPerformed
+
     private void loadTrainerData() {
-        DefaultTableModel model = (DefaultTableModel) TrainersTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         ArrayList<Users> trainers = this.adminRole.getListOfTrainers();
         for (Users user : trainers) {
             String [] splitted = user.lineRepresentation().split(", ");
@@ -115,14 +130,15 @@ public class ViewTrainers extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewTrainers(adminPage,adminRole).setVisible(true);
+                new ViewTrainers(parent,adminRole).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable TrainersTable;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
