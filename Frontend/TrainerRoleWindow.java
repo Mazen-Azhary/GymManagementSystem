@@ -59,6 +59,11 @@ static ViewTrainers viewTrainersTable;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         AddClassButton.setText("Add Class");
+        AddClassButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddClassButtonActionPerformed(evt);
+            }
+        });
 
         viewClassButton.setText("View Classes");
         viewClassButton.addActionListener(new java.awt.event.ActionListener() {
@@ -68,6 +73,11 @@ static ViewTrainers viewTrainersTable;
         });
 
         RegisterMemberForClassButton.setText("Register Member for class");
+        RegisterMemberForClassButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterMemberForClassButtonActionPerformed(evt);
+            }
+        });
 
         ViewMembersButton.setText("View Members");
         ViewMembersButton.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +165,7 @@ static ViewTrainers viewTrainersTable;
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AddMembersButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(ViewMembersButton)
@@ -215,6 +225,18 @@ static ViewTrainers viewTrainersTable;
     //this.setVisible(false);
     viewRegistrationsTable.setVisible(true);
     }//GEN-LAST:event_viewRegistrationButtonActionPerformed
+
+    private void AddClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddClassButtonActionPerformed
+        AddClass p = new AddClass(this, trainerRole);
+        p.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_AddClassButtonActionPerformed
+
+    private void RegisterMemberForClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterMemberForClassButtonActionPerformed
+        this.setVisible(false);
+        RegisterMemberForClass p = new RegisterMemberForClass(this, trainerRole);
+        p.setVisible(true);
+    }//GEN-LAST:event_RegisterMemberForClassButtonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -13,7 +13,7 @@ import Backend.*;
  * @author Mazen
  */
 public class ViewClasses extends javax.swing.JFrame {
-    static TrainerRoleWindow trainerRoleWindow;
+    static TrainerRoleWindow parent;
     static TrainerRole trainerRole;
     /**
      * Creates new form ViewClasses
@@ -22,13 +22,14 @@ public class ViewClasses extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.trainerRole = trainerRole;
-        this.trainerRoleWindow = trainerRoleWindow;
+        this.parent = trainerRoleWindow;
         setTitle("View Classes");
+        this.parent.setVisible(false);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         loadClassesData();
     }
     private void loadClassesData() {
-        DefaultTableModel model = (DefaultTableModel) ViewClassesTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         ArrayList<Users> Classes = this.trainerRole.getListOfClasses();
         for (Users user : Classes) {
             String [] splitted = user.lineRepresentation().split(", ");
@@ -52,11 +53,12 @@ public class ViewClasses extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ViewClassesTable = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
+        BackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ViewClassesTable.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -64,28 +66,44 @@ public class ViewClasses extends javax.swing.JFrame {
                 "Class Id", "Class Name", "Trainer Id", "Duration", "Max Participants"
             }
         ));
-        jScrollPane1.setViewportView(ViewClassesTable);
+        jScrollPane1.setViewportView(jTable1);
+
+        BackButton.setText("Back");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BackButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        this.setVisible(false);
+        this.parent.setVisible(true);
+    }//GEN-LAST:event_BackButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,14 +135,15 @@ public class ViewClasses extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewClasses(trainerRoleWindow,trainerRole).setVisible(true);
+                new ViewClasses(parent,trainerRole).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable ViewClassesTable;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

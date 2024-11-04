@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Frontend;
+
 import Backend.*;
 import javax.swing.JOptionPane;
 import Backend.*;
@@ -13,16 +14,18 @@ import javax.swing.JOptionPane;
  * @author Mazen
  */
 public class AddClass extends javax.swing.JFrame {
-static TrainerRole trainerRole;
-static MainWindow mainWindow;
+
+    static TrainerRole trainerRole;
+    static TrainerRoleWindow parent;
+
     /**
      * Creates new form AddClass
      */
-    public AddClass(MainWindow mainWindow,TrainerRole trainerRole) {
+    public AddClass(TrainerRoleWindow mainWindow, TrainerRole trainerRole) {
         initComponents();
-        this.mainWindow=mainWindow;
-        this.trainerRole=trainerRole;
-        
+        this.parent = mainWindow;
+        this.trainerRole = trainerRole;
+
         setTitle("Add Class");
         setLocationRelativeTo(null);
     }
@@ -55,6 +58,7 @@ static MainWindow mainWindow;
         MaxParticipantsTextField = new javax.swing.JTextPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        BackButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -90,6 +94,11 @@ static MainWindow mainWindow;
         AddButton.setForeground(new java.awt.Color(255, 255, 255));
         AddButton.setText("Add");
         AddButton.setAlignmentY(0.0F);
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddButtonActionPerformed(evt);
+            }
+        });
 
         ClassIdTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane5.setViewportView(ClassIdTextField);
@@ -167,12 +176,21 @@ static MainWindow mainWindow;
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel1.setText("                                   Add Class");
 
+        BackButton.setText("Back");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(118, 118, 118)
+                .addContainerGap()
+                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -180,7 +198,11 @@ static MainWindow mainWindow;
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BackButton))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -232,6 +254,34 @@ static MainWindow mainWindow;
         // TODO add your handling code here:
     }//GEN-LAST:event_addClassSubmitActionPerformed
 
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        this.setVisible(false);
+        this.parent.setVisible(true);
+    }//GEN-LAST:event_BackButtonActionPerformed
+
+    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+
+        try {
+            String classId = ClassIdTextField.getText();
+            String name = ClassNameTextField.getText();
+            String trainerId = TrainerIdTextField.getText();
+            if (classId.isBlank() || name.isBlank() || trainerId.isBlank() || DurationTextField.getText().isBlank() || MaxParticipantsTextField.getText().isBlank()) {
+                JOptionPane.showMessageDialog(null,"All fields are required. Please fill in all fields.", "Blank Field",JOptionPane.ERROR_MESSAGE);
+            }
+            int duration = Integer.parseInt(DurationTextField.getText());
+            int maxParticipants = Integer.parseInt(MaxParticipantsTextField.getText());
+
+            if (this.trainerRole.addClass(classId, name, trainerId, duration, maxParticipants)) {
+                JOptionPane.showMessageDialog(null, "succeful entry ");
+            } else {
+                JOptionPane.showMessageDialog(null,"Already exists","duplicate entry error",JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (NumberFormatException e) {// to avoid parseInt error
+            JOptionPane.showMessageDialog(null,"Please enter a valid integer in the duration and max participants fields","integer parse error",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_AddButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -262,13 +312,14 @@ static MainWindow mainWindow;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddClass(mainWindow,trainerRole).setVisible(true);
+                new AddClass(parent, trainerRole).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
+    private javax.swing.JButton BackButton;
     private javax.swing.JTextPane ClassIdTextField;
     private javax.swing.JTextPane ClassNameTextField;
     private javax.swing.JTextPane DurationTextField;

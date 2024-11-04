@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Frontend;
+
 import Backend.*;
 
 import javax.swing.JOptionPane;
@@ -12,15 +13,16 @@ import javax.swing.JOptionPane;
  * @author Mazen
  */
 public class AddMember extends javax.swing.JFrame {
-static TrainerRoleWindow mainWindow;
-static TrainerRole trainerRole;
+
+    static TrainerRoleWindow parent;
+    static TrainerRole trainerRole;
 
     /**
      * Creates new form AddMember
      */
-    public AddMember(TrainerRoleWindow mainWindow,TrainerRole trainerRole) {
-        this.mainWindow=mainWindow;
-        this.trainerRole=trainerRole;
+    public AddMember(TrainerRoleWindow mainWindow, TrainerRole trainerRole) {
+        this.parent = mainWindow;
+        this.trainerRole = trainerRole;
         this.setTitle("Add Member Window");
         initComponents();
         setTitle("Add Member");
@@ -61,6 +63,7 @@ static TrainerRole trainerRole;
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,7 +88,7 @@ static TrainerRole trainerRole;
         jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-               // jButton6ActionPerformed(evt);
+                //jButton6ActionPerformed(evt);
             }
         });
 
@@ -95,7 +98,7 @@ static TrainerRole trainerRole;
         jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-              //  jButton5ActionPerformed(evt);
+               // jButton5ActionPerformed(evt);
             }
         });
 
@@ -105,7 +108,7 @@ static TrainerRole trainerRole;
         jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-             //   jButton4ActionPerformed(evt);
+               //// jButton4ActionPerformed(evt);
             }
         });
 
@@ -261,15 +264,28 @@ static TrainerRole trainerRole;
 
         getContentPane().add(jPanel4, java.awt.BorderLayout.LINE_END);
 
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 398, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(backButton)
+                .addContainerGap(336, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel5, java.awt.BorderLayout.LINE_START);
@@ -278,21 +294,22 @@ static TrainerRole trainerRole;
     }// </editor-fold>//GEN-END:initComponents
 
 
-
     private void AddMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMemberButtonActionPerformed
-       if(memberIdText.getText().isBlank()||NameTextField.getText().isBlank()||EmailTextField.getText().isBlank()||membershipTypeTextField.getText().isBlank()||PhoneNumberTextField.getText().isBlank()||statusTextField.getText().isBlank())
-       {
-           JOptionPane.showMessageDialog(null, "You Must Fill all entries");
-       }
-       if(PhoneNumberTextField.getText().length()==11){ 
-        if(this.trainerRole.addMember(memberIdText.getText(),NameTextField.getText(),EmailTextField.getText(),membershipTypeTextField.getText(),PhoneNumberTextField.getText(),statusTextField.getText()))
-        JOptionPane.showMessageDialog(null,"Succesful entry");  
-        
-       }else{
-           JOptionPane.showMessageDialog(null, "Enter a valid phone number","Error in phone number",JOptionPane.ERROR_MESSAGE);
-       }
+        if (memberIdText.getText().isBlank() || NameTextField.getText().isBlank() || EmailTextField.getText().isBlank() || membershipTypeTextField.getText().isBlank() || PhoneNumberTextField.getText().isBlank() || statusTextField.getText().isBlank()) {
+            JOptionPane.showMessageDialog(null, "You Must Fill all entries");
+        } else {
+            if (this.trainerRole.addMember(memberIdText.getText(), NameTextField.getText(), memberIdText.getText(), EmailTextField.getText(), PhoneNumberTextField.getText(), statusTextField.getText())) {
+                JOptionPane.showMessageDialog(null, "Succesful entry of member with id:" + memberIdText.getText());
+            } else {
+                JOptionPane.showMessageDialog(null, "The member with id:" + memberIdText.getText() + " already exists", "Duplicate entry error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_AddMemberButtonActionPerformed
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        this.setVisible(false);
+        this.parent.setVisible(true);
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -324,13 +341,14 @@ static TrainerRole trainerRole;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddMember(mainWindow,trainerRole).setVisible(true);
+                new AddMember(parent, trainerRole).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddMemberButton;
+    private javax.swing.JButton backButton;
     private javax.swing.JTextPane EmailTextField;
     private javax.swing.JTextPane NameTextField;
     private javax.swing.JTextPane PhoneNumberTextField;
