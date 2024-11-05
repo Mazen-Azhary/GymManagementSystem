@@ -28,6 +28,7 @@ static ViewTrainers viewTrainersTable;
         this.mainWindow = mainWindow;
         initComponents();   
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
          jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
     }
 

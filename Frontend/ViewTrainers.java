@@ -26,9 +26,11 @@ public class ViewTrainers extends javax.swing.JFrame {
         setTitle("View Trainers");
         this.adminRole = adminRole;
         this.parent = adminPage;
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         loadTrainerData();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

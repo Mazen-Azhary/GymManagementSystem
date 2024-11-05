@@ -25,7 +25,7 @@ public class AddClass extends javax.swing.JFrame {
         initComponents();
         this.parent = mainWindow;
         this.trainerRole = trainerRole;
-
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setTitle("Add Class");
         setLocationRelativeTo(null);
     }

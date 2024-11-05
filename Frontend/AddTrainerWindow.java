@@ -22,9 +22,10 @@ static AdminRole adminRole;
         this.parent=parent;
         this.adminRole=adminRole;
         this.setTitle("Add Trainer");
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(parent);
         initComponents();
         this.setVisible(true);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 
     /**

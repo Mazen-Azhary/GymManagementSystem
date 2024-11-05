@@ -26,7 +26,7 @@ static TrainerRole trainer;
         this.trainer=trainer;
         this.parent=parent;
         initComponents();
-        
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         
     }
 

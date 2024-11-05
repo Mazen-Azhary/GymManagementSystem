@@ -27,6 +27,7 @@ static AdminRole adminRole;
        // setSize(300, 200);
         setLocationRelativeTo(null);
        setVisible(true);
+       setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 
     /**

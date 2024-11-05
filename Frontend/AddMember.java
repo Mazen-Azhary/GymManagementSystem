@@ -25,8 +25,8 @@ public class AddMember extends javax.swing.JFrame {
         this.trainerRole = trainerRole;
         this.setTitle("Add Member Window");
         initComponents();
-        setTitle("Add Member");
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 
     /**

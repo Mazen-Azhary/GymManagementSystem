@@ -16,13 +16,13 @@ public class ViewRegistrations extends javax.swing.JFrame {
     /**
      * Creates new form ViewRegistrations
      */
-    static TrainerRoleWindow trainerRoleWindow;
+    static TrainerRoleWindow parent;
     static TrainerRole trainerRole;
     public ViewRegistrations(TrainerRoleWindow trainerRoleWindow,TrainerRole trainerRole) {
         initComponents();
         setLocationRelativeTo(null);
         this.trainerRole = trainerRole;
-        this.trainerRoleWindow = trainerRoleWindow;
+        this.parent = trainerRoleWindow;
         setTitle("View Registrations");
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         loadRegistrationData();
@@ -52,6 +52,7 @@ public class ViewRegistrations extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ViewRegistrationsTable = new javax.swing.JTable();
+        BackButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -75,19 +76,31 @@ public class ViewRegistrations extends javax.swing.JFrame {
             ViewRegistrationsTable.getColumnModel().getColumn(2).setHeaderValue("Reg Date");
         }
 
+        BackButton4.setText("Back");
+        BackButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 632, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(BackButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 581, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(77, 77, 77)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 287, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(BackButton4)
+                .addGap(0, 263, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
         );
@@ -149,6 +162,10 @@ public class ViewRegistrations extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BackButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BackButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -179,12 +196,13 @@ public class ViewRegistrations extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewRegistrations(trainerRoleWindow,trainerRole).setVisible(true);
+                new ViewRegistrations(parent,trainerRole).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackButton4;
     private javax.swing.JTable ViewRegistrationsTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
