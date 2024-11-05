@@ -5,6 +5,8 @@
 package Frontend;
 import Backend.*;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -18,7 +20,11 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         this.setTitle("Gym System");
         initComponents();
-        setLocationRelativeTo(null);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
         
     }
 

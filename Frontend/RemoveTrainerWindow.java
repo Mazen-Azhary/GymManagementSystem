@@ -5,6 +5,8 @@
 package Frontend;
 
 import Backend.AdminRole;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -25,8 +27,11 @@ static AdminRole adminRole;
         setTitle("Remove Trainer");
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        // setSize(300, 200);
-        setLocationRelativeTo(null);
-       setVisible(true);
+       Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 
@@ -186,10 +191,10 @@ static AdminRole adminRole;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void RemoveTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveTrainerButtonActionPerformed
-        if(this.adminRole.removeTrainer(TrainerIdTexrField.getText())){
-            JOptionPane.showMessageDialog(null, "Trainer with id:"+TrainerIdTexrField.getText()+ " Succefuly deleted");
+        if(this.adminRole.removeTrainer(TrainerIdTexrField.getText().trim().replace("\n", ""))){
+            JOptionPane.showMessageDialog(null, "Trainer with id:"+TrainerIdTexrField.getText().trim().replace("\n", "")+ " Succefuly deleted");
         }else{
-            JOptionPane.showMessageDialog(null, "Trainer with id:"+TrainerIdTexrField.getText()+ " doesn't exist","id non existing",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Trainer with id:"+TrainerIdTexrField.getText().trim().replace("\n", "")+ " doesn't exist","id non existing",JOptionPane.ERROR_MESSAGE);
         
         }
     }//GEN-LAST:event_RemoveTrainerButtonActionPerformed

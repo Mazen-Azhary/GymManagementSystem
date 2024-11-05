@@ -7,6 +7,8 @@ package Frontend;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import Backend.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 
 /**
@@ -28,6 +30,11 @@ public class ViewTrainers extends javax.swing.JFrame {
         this.parent = adminPage;
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         loadTrainerData();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
     }
     
     

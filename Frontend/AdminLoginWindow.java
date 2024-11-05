@@ -6,6 +6,8 @@ package Frontend;
 import javax.swing.*;
 import Backend.*;
 import constants.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 /**
  *
  * @author Etijah
@@ -20,8 +22,11 @@ static MainWindow mainWindow;
         initComponents();
         setTitle("Admin Login");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setVisible(true);
+       Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
     }
 
     /**
@@ -201,8 +206,8 @@ static MainWindow mainWindow;
     }// </editor-fold>//GEN-END:initComponents
 
     private void AdminLoginSubmissionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLoginSubmissionButtonActionPerformed
-        String Username = AdminUserNameTextField.getText();
-        String Password =AdminPasswordTextField.getText();
+        String Username = AdminUserNameTextField.getText().trim().replace("\n", "");
+        String Password =AdminPasswordTextField.getText().trim().replace("\n", "");
         if(Username.equalsIgnoreCase(LoginCredentials.ADMIN_USERNAME) && Password.equalsIgnoreCase(LoginCredentials.ADMIN_PASSWORD)){
             JOptionPane.showMessageDialog(null, "Welcome Admin");
             AdminPage adminpage = new AdminPage(mainWindow);

@@ -7,6 +7,8 @@ package Frontend;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import Backend.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 /**
  *
  * @author Mazen
@@ -24,8 +26,13 @@ public class ViewRegistrations extends javax.swing.JFrame {
         this.trainerRole = trainerRole;
         this.parent = trainerRoleWindow;
         setTitle("View Registrations");
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         loadRegistrationData();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
     }
     private void loadRegistrationData() {
         DefaultTableModel model = (DefaultTableModel) ViewRegistrationsTable.getModel();
@@ -163,7 +170,8 @@ public class ViewRegistrations extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton4ActionPerformed
-        // TODO add your handling code here:
+        this.parent.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BackButton4ActionPerformed
 
     /**

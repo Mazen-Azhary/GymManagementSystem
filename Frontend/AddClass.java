@@ -7,6 +7,8 @@ package Frontend;
 import Backend.*;
 import javax.swing.JOptionPane;
 import Backend.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,7 +29,11 @@ public class AddClass extends javax.swing.JFrame {
         this.trainerRole = trainerRole;
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setTitle("Add Class");
-        setLocationRelativeTo(null);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
     }
 
     /**
@@ -262,14 +268,14 @@ public class AddClass extends javax.swing.JFrame {
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
 
         try {
-            String classId = ClassIdTextField.getText();
-            String name = ClassNameTextField.getText();
-            String trainerId = TrainerIdTextField.getText();
-            if (classId.isBlank() || name.isBlank() || trainerId.isBlank() || DurationTextField.getText().isBlank() || MaxParticipantsTextField.getText().isBlank()) {
+            String classId = ClassIdTextField.getText().trim().replace("\n", "").trim();
+            String name = ClassNameTextField.getText().trim().replace("\n", "");
+            String trainerId = TrainerIdTextField.getText().trim().replace("\n", "");
+            if (classId.isBlank() || name.isBlank() || trainerId.isBlank() || DurationTextField.getText().trim().replace("\n", "").isBlank() || MaxParticipantsTextField.getText().trim().replace("\n", "").isBlank()) {
                 JOptionPane.showMessageDialog(null,"All fields are required. Please fill in all fields.", "Blank Field",JOptionPane.ERROR_MESSAGE);
             }
-            int duration = Integer.parseInt(DurationTextField.getText());
-            int maxParticipants = Integer.parseInt(MaxParticipantsTextField.getText());
+            int duration = Integer.parseInt(DurationTextField.getText().trim().replace("\n", ""));
+            int maxParticipants = Integer.parseInt(MaxParticipantsTextField.getText().trim().replace("\n", ""));
 
             if (this.trainerRole.addClass(classId, name, trainerId, duration, maxParticipants)) {
                 JOptionPane.showMessageDialog(null, "succeful entry ");

@@ -10,6 +10,7 @@ public class AdminRole {
     public boolean addTrainer(String trainerId, String name, String email, String specialty, String phoneNumber) {
         if (!trainerDatabase.contains(trainerId)) {
             trainerDatabase.insertRecord(new Trainer(trainerId, name, specialty, email, phoneNumber));
+            logout();
             return true;
         }
         return false;
@@ -22,6 +23,7 @@ public class AdminRole {
     public boolean removeTrainer(String key) {
         if (trainerDatabase.getRecord(key)!=null) {
             trainerDatabase.deleteRecord(key);
+            logout();
             return true;
         }
         return false;

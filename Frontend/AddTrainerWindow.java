@@ -6,6 +6,8 @@ package Frontend;
 
 import Backend.AdminRole;
 import Backend.TrainerRole;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,8 +26,12 @@ static AdminRole adminRole;
         this.setTitle("Add Trainer");
         setLocationRelativeTo(parent);
         initComponents();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
         this.setVisible(true);
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+       setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 
     /**
@@ -235,10 +241,10 @@ static AdminRole adminRole;
     }//GEN-LAST:event_TrainerIdTextFieldActionPerformed
 
     private void AddTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTrainerButtonActionPerformed
-        String id = TrainerIdTextField.getText();
-        String name = TrainerNameTextField.getText();
-        String speciality = TrainerSpecialityTextField.getText();
-        String phoneNum = TrainerPhoneNumberTextField.getText();
+        String id = TrainerIdTextField.getText().trim().replace("\n", "");
+        String name = TrainerNameTextField.getText().trim().replace("\n", "");
+        String speciality = TrainerSpecialityTextField.getText().trim().replace("\n", "");
+        String phoneNum = TrainerPhoneNumberTextField.getText().trim().replace("\n", "");
         if(id.isBlank()||name.isBlank() || speciality.isBlank() || phoneNum.isBlank()){
             JOptionPane.showMessageDialog(null, "Enter all fields","Missing Fields",JOptionPane.ERROR_MESSAGE);
         }else{

@@ -6,6 +6,8 @@ package Frontend;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import Backend.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 /**
  *
  * @author Mazen
@@ -23,8 +25,13 @@ public class ViewMembers extends javax.swing.JFrame {
         this.trainerRole = trainerRole;
         this.parent = trainerRoleWindow;
         setTitle("View Members");
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         loadMembersData();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
     }
     private void loadMembersData() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();

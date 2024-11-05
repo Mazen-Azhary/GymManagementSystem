@@ -4,6 +4,8 @@
  */
 package Frontend;
 import Backend.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 /**
  *
@@ -20,6 +22,11 @@ static TrainerRole trainer;
         this.setTitle("Cancel Registration");
         initComponents();
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
     }
 
     /**
@@ -182,7 +189,8 @@ static TrainerRole trainer;
     }//GEN-LAST:event_cancelRegButtonActionPerformed
 
     private void BackButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton4ActionPerformed
-        // TODO add your handling code here:
+        this.parent.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BackButton4ActionPerformed
 
     /**

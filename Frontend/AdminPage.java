@@ -6,6 +6,8 @@ package Frontend;
 
 import javax.swing.JOptionPane;
 import Backend.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 /**
  *
  * @author Mazen
@@ -23,8 +25,13 @@ public class AdminPage extends javax.swing.JFrame {
         admin = new AdminRole();
         this.mainWindow=mainWindow;
         initComponents();
+         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
         //setLocationRelativeTo(mainWindow);
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+       // setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 
     /**

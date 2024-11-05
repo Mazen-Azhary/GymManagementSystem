@@ -4,6 +4,8 @@
  */
 package Frontend;
 import Backend.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
 
@@ -27,8 +29,11 @@ static ViewTrainers viewTrainersTable;
         this.trainerRole=new TrainerRole();
         this.mainWindow = mainWindow;
         initComponents();   
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+       Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
          jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
     }
 
@@ -95,6 +100,11 @@ static ViewTrainers viewTrainersTable;
         });
 
         CancelRegistrationButton.setText("Cancel Registration");
+        CancelRegistrationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelRegistrationButtonActionPerformed(evt);
+            }
+        });
 
         LogoutButton.setText("Logout");
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -238,6 +248,12 @@ static ViewTrainers viewTrainersTable;
         RegisterMemberForClass p = new RegisterMemberForClass(this, trainerRole);
         p.setVisible(true);
     }//GEN-LAST:event_RegisterMemberForClassButtonActionPerformed
+
+    private void CancelRegistrationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelRegistrationButtonActionPerformed
+        CancelRegistration c = new CancelRegistration(this, trainerRole);
+        c.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_CancelRegistrationButtonActionPerformed
 
     /**
      * @param args the command line arguments

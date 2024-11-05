@@ -1,18 +1,22 @@
 package Backend;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class TrainerRole {
+
     private MemberDatabase memberdatabase = new MemberDatabase();
     private ClassDatabase classdatabase = new ClassDatabase();
     private MemberClassRegistrationDatabase memberClassRegistrationDatabase = new MemberClassRegistrationDatabase();
-    
-    public TrainerRole() {}
+
+    public TrainerRole() {
+    }
 
     public boolean addMember(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
         if (!memberdatabase.contains(memberID)) {
             memberdatabase.insertRecord(new Member(memberID, name, membershipType, email, phoneNumber, status));
+            logout();
             return true;
         }
         return false;
@@ -23,7 +27,12 @@ public class TrainerRole {
     }
 
     public boolean addClass(String classID, String className, String trainerID, int duration, int maxParticipants) {
-        return classdatabase.insertRecord(new Class(classID, className, trainerID, duration, maxParticipants));
+        if (classdatabase.insertRecord(new Class(classID, className, trainerID, duration, maxParticipants))) {
+            logout();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public ArrayList<Users> getListOfClasses() {
@@ -40,10 +49,12 @@ public class TrainerRole {
         if (memberClassRegistrationDatabase.getRecord(memberID + classID) != null) {
             return false;
         }
-        MemberClassRegistration newRegistration = new MemberClassRegistration(memberID,classID,"Active",registrationDate);
+        MemberClassRegistration newRegistration = new MemberClassRegistration(memberID, classID, "Active", registrationDate);
         if (memberClassRegistrationDatabase.insertRecord(newRegistration)) {
             addedClass.setAvailableSeats(addedClass.getAvailableSeats() - 1);
+            logout();
             return true;
+
         }
         return false;
     }
@@ -54,23 +65,23 @@ public class TrainerRole {
         if (registration == null) {
             return false;
         }
-        if(registration.getStatus().equalsIgnoreCase("cancelled")) {
+        if (registration.getStatus().equalsIgnoreCase("cancelled")) {
             return false;
         }
         LocalDate cancelDate = LocalDate.now();
         LocalDate registrationDate = registration.getRegistrationDate();
         long daysBetween = ChronoUnit.DAYS.between(registrationDate, cancelDate);
-        if(registration.getStatus().equalsIgnoreCase("cancelled"))
-        {
+        if (registration.getStatus().equalsIgnoreCase("cancelled")) {
             return false;
         }
-        if (daysBetween <=3) {
+        if (daysBetween <= 3) {
             Class registeredClass = (Class) classdatabase.getRecord(classID);
-                registration.setRegistrationStatus("cancelled");
-                registeredClass.setAvailableSeats(registeredClass.getAvailableSeats() + 1);
-                return true;
+            registration.setRegistrationStatus("cancelled");
+            registeredClass.setAvailableSeats(registeredClass.getAvailableSeats() + 1);
+            logout();
+            return true;
         }
-             return false;
+        return false;
     }
 
     public ArrayList<Users> getListOfRegistrations() {

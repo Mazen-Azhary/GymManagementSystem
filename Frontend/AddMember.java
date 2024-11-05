@@ -5,6 +5,8 @@
 package Frontend;
 
 import Backend.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import javax.swing.JOptionPane;
 
@@ -27,6 +29,11 @@ public class AddMember extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
     }
 
     /**
@@ -295,13 +302,13 @@ public class AddMember extends javax.swing.JFrame {
 
 
     private void AddMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMemberButtonActionPerformed
-        if (memberIdText.getText().isBlank() || NameTextField.getText().isBlank() || EmailTextField.getText().isBlank() || membershipTypeTextField.getText().isBlank() || PhoneNumberTextField.getText().isBlank() || statusTextField.getText().isBlank()) {
+        if (memberIdText.getText().trim().replace("\n", "").isBlank() || NameTextField.getText().trim().replace("\n", "").isBlank() || EmailTextField.getText().trim().replace("\n", "").isBlank() || membershipTypeTextField.getText().trim().replace("\n", "").isBlank() || PhoneNumberTextField.getText().trim().replace("\n", "").isBlank() || statusTextField.getText().trim().replace("\n", "").isBlank()) {
             JOptionPane.showMessageDialog(null, "You Must Fill all entries");
         } else {
-            if (this.trainerRole.addMember(memberIdText.getText(), NameTextField.getText(), memberIdText.getText(), EmailTextField.getText(), PhoneNumberTextField.getText(), statusTextField.getText())) {
-                JOptionPane.showMessageDialog(null, "Succesful entry of member with id:" + memberIdText.getText());
+            if (this.trainerRole.addMember(memberIdText.getText().trim().replace("\n", ""), NameTextField.getText().trim().replace("\n", ""), memberIdText.getText().trim().replace("\n", ""), EmailTextField.getText().trim().replace("\n", ""), PhoneNumberTextField.getText().trim().replace("\n", ""), statusTextField.getText().trim().replace("\n", ""))) {
+                JOptionPane.showMessageDialog(null, "Succesful entry of member with id:" + memberIdText.getText().trim().replace("\n", ""));
             } else {
-                JOptionPane.showMessageDialog(null, "The member with id:" + memberIdText.getText() + " already exists", "Duplicate entry error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "The member with id:" + memberIdText.getText().trim().replace("\n", "") + " already exists", "Duplicate entry error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_AddMemberButtonActionPerformed

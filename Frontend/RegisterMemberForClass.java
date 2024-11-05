@@ -5,6 +5,8 @@
 package Frontend;
 
 import Backend.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -27,6 +29,11 @@ static TrainerRole trainer;
         this.parent=parent;
         initComponents();
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
         
     }
 
@@ -213,8 +220,8 @@ static TrainerRole trainer;
     }//GEN-LAST:event_memberIdTextFieldActionPerformed
 
     private void MemberRegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MemberRegisterButtonActionPerformed
-        String classId = classIdTextField.getText();
-        String memberId = memberIdTextField.getText();
+        String classId = classIdTextField.getText().trim().replace("\n", "");
+        String memberId = memberIdTextField.getText().trim().replace("\n", "");
         LocalDate registrationDate = registrationDateCombobox.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         // getDate() gets Date object from combobox, 
         // toinstant() gets time as a moment in UTC

@@ -7,41 +7,52 @@ package Frontend;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import Backend.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
  * @author Mazen
  */
 public class ViewClasses extends javax.swing.JFrame {
+
     static TrainerRoleWindow parent;
     static TrainerRole trainerRole;
+
     /**
      * Creates new form ViewClasses
      */
-    public ViewClasses(TrainerRoleWindow trainerRoleWindow,TrainerRole trainerRole) {
+    public ViewClasses(TrainerRoleWindow trainerRoleWindow, TrainerRole trainerRole) {
         initComponents();
         setLocationRelativeTo(null);
         this.trainerRole = trainerRole;
         this.parent = trainerRoleWindow;
         setTitle("View Classes");
         this.parent.setVisible(false);
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
         loadClassesData();
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
+
     private void loadClassesData() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         ArrayList<Users> Classes = this.trainerRole.getListOfClasses();
         for (Users user : Classes) {
-            String [] splitted = user.lineRepresentation().split(", ");
+            String[] splitted = user.lineRepresentation().split(", ");
             model.addRow(new String[]{
-                    splitted[0],
-                    splitted[1],
-                    splitted[2],
-                    splitted[3],
-                    splitted[4]
+                splitted[0],
+                splitted[1],
+                splitted[2],
+                splitted[3],
+                splitted[4]
             });
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -135,7 +146,7 @@ public class ViewClasses extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewClasses(parent,trainerRole).setVisible(true);
+                new ViewClasses(parent, trainerRole).setVisible(true);
             }
         });
     }

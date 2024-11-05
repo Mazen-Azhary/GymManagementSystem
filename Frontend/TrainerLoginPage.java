@@ -6,6 +6,8 @@ package Frontend;
 
 import javax.swing.JOptionPane;
 import constants.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 /**
  *
  * @author Mazen
@@ -19,7 +21,12 @@ public static MainWindow mainWindow;
         this.setTitle("Trainer Login");
         this.mainWindow=mainWindow;
         initComponents();
-        setLocationRelativeTo(null);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        setLocation(x, y);
+        this.setVisible(true);
+        
     }
 
     /**
@@ -245,8 +252,8 @@ public static MainWindow mainWindow;
     }// </editor-fold>//GEN-END:initComponents
 
     private void TrainerLoginSubmissionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrainerLoginSubmissionButtonActionPerformed
-        String Username = TrainerUserNameTextField.getText();
-        String Password =TrainerPasswordTextField.getText();
+        String Username = TrainerUserNameTextField.getText().trim().replace("\n", "");
+        String Password =TrainerPasswordTextField.getText().trim().replace("\n", "");
         if(Username.equalsIgnoreCase(LoginCredentials.TRAINER_USERNAME) && Password.equalsIgnoreCase(LoginCredentials.TRAINER_PASSWORD)){
             JOptionPane.showMessageDialog(null, "Welcome Trainer");
             TrainerRoleWindow trainerPage = new TrainerRoleWindow(this,mainWindow);
