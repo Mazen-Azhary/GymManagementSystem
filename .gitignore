@@ -2,9 +2,9 @@
 META-INF
 de/wannawork/jcalendar
 license.txt
-readme.txt
 jcalendar-0.8.1.zip
 changelog.txt
 *.form
 *.zip
 *.rar
+!*.txt
