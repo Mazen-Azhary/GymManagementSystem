@@ -12,14 +12,6 @@ This project is a **Gym Management System** that allows trainers to add classes,
 - Java Swing (GUI)
 - JCalendar 0.8.1 (for date selection)
 
-## Screenshots
-### Add Class Menu
-![Add Class](screenshots/add_class.png)
-### Register Member Menu
-![Register Member](screenshots/register_member.png)
-### View Registrations Menu
-![View Registrations](screenshots/view_registrations.png)
-
 ## Installation and Usage
 1. Clone the repository:
    ```sh
