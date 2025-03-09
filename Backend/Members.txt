@@ -1,8 +1,6 @@
-8746, Omar Adel, 8746, oadel1814@gmail.com, 01123211934, Active
-8963, Mazen Tarek, 8963, mazen@gmail.com, 01123515191, Active
-M001, John, Monthly, john@gmail.com, 0123456789, active
-M004, mem4, Monthly, mem4@example.com, 044, Active
-M002, member2, Monthly, mem2@example.com, 0222, Active
-M003, member3, Monthly, mem3@example.com, 0333, Active
-T001, El ba4mohandes Seif, T001, Elba4mohandesSeif@gmail.com, 01123211934, Active
-6144, iodakong, 6144, lkadngm,adln, 01229945998, aipkadv
+8746, Omar Adel, Monthly, oadel1814@gmail.com, 01123211934, Active
+8963, Mazen Tarek, Weekly, mazen@gmail.com, 01123515191, Active
+M001, John, Monthly, john@gmail.com, 01234567891, Active
+M004, mem4, Monthly, mem4@example.com, 01234567891, Active
+M002, member2, Monthly, mem2@example.com, 01234567891, Active
+M003, member3, Monthly, mem3@example.com, 01234567891, Active

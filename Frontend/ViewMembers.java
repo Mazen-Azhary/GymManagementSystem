@@ -68,7 +68,7 @@ public class ViewMembers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Name", "Email", "Membership type", "Phone Number", "Status"
+                "ID", "Name", "Membership type", "Email", "Phone Number", "Status"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
