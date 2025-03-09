@@ -1,4 +1,4 @@
-# Class Management System
+# Gym Management System
 
 ## Description
 This project is a **Gym Management System** that allows trainers to add classes, register members, and view class registrations, as well as admins monitoring the trainers' work through dashboards. The system is built using Java Swing for the graphical user interface and utilizes JCalendar 0.8.1 for date selection when required.
